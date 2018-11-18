@@ -1,0 +1,7 @@
+<h1>Write something fun</h1>
+<p>Write something cool and we will make a supreme logo out of it. Yes, that is awesome!</p>
+
+<%= form_tag({ controller: "designs", action: "show" }, method: "get") do %>
+  <%= text_field_tag(:text) %>
+  <%= submit_tag("Submit") %>
+<% end %>
