@@ -3,5 +3,6 @@ class DesignsController < ApplicationController
   end
 
   def show
+    @text = params["text"]
   end
 end
