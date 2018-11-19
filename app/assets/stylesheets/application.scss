@@ -14,6 +14,10 @@
 @import "designs";
 @import "bootstrap";
 
+body {
+  background-color: #FDFFFC;
+}
+
 image {
   width:100%;
 }
@@ -51,5 +55,43 @@ nav {
 }
 
 #preview-image img, #customise-design img {
+  max-width:100%;
+}
+
+#customise-design{
+  font-size: 14px;
+  table{
   width:100%;
+  text-align: center;
+  }
+  td,th{
+    border:1px solid grey;
+  }
+  .btn {
+    width:100%;
+    padding: 10px 0px;
+    margin-bottom: 20px;
+  }
+  .btn-danger {
+    background-color: #011627;
+    border-color: #011627;
+  }
+  .btn-primary {
+    background-color: #D82122;
+    border-color: #D82122;
+  }
+  h4{
+    font-size: 20px;
+    margin-top: 20px;
+  }
+  h3{
+    font-size: 16px;
+  }
+  .form-group{
+    margin: 20px 0px;
+    label{
+        font-size: 16px;
+        font-weight: 500;
+    }
+  }
 }
