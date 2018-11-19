@@ -14,18 +14,21 @@
 @import "designs";
 @import "bootstrap";
 
+$red: #D82122;
+
 body {
   background-color: #FDFFFC;
 }
 
-image {
-  width:100%;
-}
-
 nav {
-  background-color: #D82122;
+  background-color: $red;
 }
 
+//Home Page
+.jumbotron {
+
+}
+//Hero
 #hero {
   background: image-url('hero.jpg');
   background-size: cover;
@@ -44,9 +47,10 @@ nav {
       width:400px;
       max-width: 100%;
     }
-    .btn-primary {
-      background-color: #D82122;
-      border-color: #D82122;
+    .btn {
+      background-color: $red;
+      color:#FDFFFC;
+      border-color: $red;
       font-family: "Futura";
       font-weight: bold;
       font-style: italic;
@@ -54,6 +58,56 @@ nav {
     }
 }
 
+//Who we are section
+#who-are-we {
+  margin:120px 0px;
+  display:flex;
+  align-items:center;
+  img{
+    max-width:100%;
+  }
+  .btn {
+    background-color: $red;
+    color:#FDFFFC;
+    border-color: $red;
+    font-family: "Futura";
+    font-weight: bold;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+}
+
+.paralax {
+  background: image-url('paralax1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-attachment: fixed;
+  height:40vh;
+}
+
+#how-we-work{
+  img{
+    max-width:100%;
+  }
+  h1{
+    padding: 40px 0px;
+  }
+  h4{
+    margin:15px 0px;
+  }
+  .oi{
+    font-size: 32px;
+    color:$red;
+  }
+  margin: 40px 0px;
+  text-align: center;
+
+}
+
+
+
+//Show page
 #preview-image img, #customise-design img {
   max-width:100%;
 }
@@ -77,8 +131,8 @@ nav {
     border-color: #011627;
   }
   .btn-primary {
-    background-color: #D82122;
-    border-color: #D82122;
+    background-color: $red;
+    border-color: $red;
   }
   h4{
     font-size: 20px;
