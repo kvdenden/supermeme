@@ -1,2 +1,90 @@
 <h1><%= @text %></h1>
-<%= image_tag @image_path, alt: @text %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" id="preview-image">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= image_tag("dummy-print-preview.png", :alt => "First preview slide") %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("dummy-print-preview.png", :alt => "Second preview slide") %>
+          </div>
+          <div class="carousel-item">
+            <%= image_tag("dummy-print-preview.png", :alt => "Second preview slide") %>
+          </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+    </div>
+    <div class="col-md-6" id="customise-design">
+      <%= image_tag @image_path, alt: @text %>
+      <h4>Product description</h4>
+      <p>Fitted, comfortable, and soft – this cool Velociraptor t-shirt was made just for you. It can withstand several washings while maintaining its shape, so it's great for everyday wear!</p>
+      <ul>
+        <li>100% fine jersey cotton (Heather colors contain polyester)</li>
+        <li>Fabric weight: 4.3 oz (146 g/m2)</li>
+        <li>Shoulder-to-shoulder taping</li>
+        <li>Double stitched</li>
+        <li>Made in the USA</li>
+      </ul>
+      <h3>Size guide</h3>
+      <table>
+        <tbody>
+          <tr>
+            <td></td>
+            <td><strong>XS</strong></td>
+            <td><strong>S</strong></td>
+            <td><strong>M</strong></td>
+            <td><strong>L</strong></td>
+            <td><strong>XL</strong></td>
+          </tr>
+          <tr>
+            <th>Chest (inches)</th>
+            <td>30-32</td>
+            <td>34-36</td>
+            <td>38-40</td>
+            <td>42-44</td>
+            <td>46-48</td>
+          </tr>
+          <tr>
+            <th>Waist (inches)</th>
+            <td>28-30</td>
+            <td>30-32</td>
+            <td>32-33</td>
+            <td>33-34</td>
+            <td>36-38</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="form-group">
+        <label for="inputSize">Choose your size</label>
+        <select id="inputSize" class="form-control">
+          <option>XS</option>
+          <option>S</option>
+          <option selected>M</option>
+          <option>L</option>
+          <option>XL</option>
+          <option>XXL</option>
+        </select>
+      </div>
+      <%= link_to "Buy now", designs_new_path, :class =>"btn btn-danger" %>
+      <%= link_to "Add to cart", designs_new_path, :class =>"btn btn-primary" %>
+    </div>
+
+  </div>
+
+</div>
