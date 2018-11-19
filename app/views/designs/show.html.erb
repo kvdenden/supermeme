@@ -1,2 +1,33 @@
 <h1><%= @text %></h1>
-<%= image_tag @image_path, alt: @text %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-6" id="preview-image">
+      <%= image_tag("dummy-print-preview.png", :alt => "preview image") %>
+    </div>
+
+    <div class="col-sm-6" id="customise-design">
+      <%= image_tag @image_path, alt: @text %>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+        <label class="form-check-label" for="exampleRadios1">
+          S
+        </label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+        <label class="form-check-label" for="exampleRadios2">
+          M
+        </label>
+      </div>
+      <div class="form-check">
+        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios3" value="option3">
+        <label class="form-check-label" for="exampleRadios3">
+          L
+        </label>
+      </div>
+    </div>
+
+  </div>
+
+</div>
