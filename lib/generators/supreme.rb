@@ -12,7 +12,8 @@ module Generators
     }
 
     def self.call(text, **options)
-      MagickTitle.say(text, DEFAULT_OPTIONS.merge(options)).url
+      filename = MagickTitle.say(text, DEFAULT_OPTIONS.merge(options)).url.split("/").last
+      File.join("/designs", filename)
     end
   end
 end
