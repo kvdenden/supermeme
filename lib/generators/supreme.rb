@@ -25,7 +25,7 @@ module Generators
       image.border!(20, 10, RED)
 
       # write image to file
-      image_path = Tempfile.new(['hello', '.png'], '/tmp/designs').path
+      image_path = Tempfile.new(['supermeme', '.png'], File.join(Dir.tmpdir, 'designs')).path
       image.write(image_path)
 
       # return path of file
