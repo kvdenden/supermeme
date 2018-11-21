@@ -23,8 +23,7 @@
 /public/assets
 .byebug_history
 
-/public/tmp/designs/*
-!/public/tmp/designs/.keep
+/public/designs
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
