@@ -4,6 +4,6 @@ class DesignsController < ApplicationController
 
   def show
     @text = params["text"]
-    @image_path = Generators::Supreme.call(@text)
+    @image_path = generated_image_path(@text)
   end
 end

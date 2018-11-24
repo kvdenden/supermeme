@@ -34,13 +34,8 @@ module Generators
         image.resize!(image.columns * scale_factor, image.rows * scale_factor)
       end
 
-      # write image to file
-      image_path = Tempfile.new(['supermeme', '.png'], File.join(Dir.tmpdir, 'designs')).path
-      image.write(image_path)
-
-      # return path of file
-      filename = image_path.split("/").last
-      File.join("/designs", filename)
+      # return image as png
+      image.tap { |img| img.format = 'PNG' }
     end
   end
 end
