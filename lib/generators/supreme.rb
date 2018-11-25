@@ -1,8 +1,9 @@
 module Generators
   class Supreme
+    BASE_SIZE = 720
     RED = "#da2727"
 
-    def self.call(text)
+    def self.call(text, size: BASE_SIZE)
       # create image
       image = Magick::Image.new(8000, 1000) { self.background_color = RED }
 
@@ -27,6 +28,11 @@ module Generators
 
       # add padding
       image.border!(240, 80, RED)
+
+      if size != BASE_SIZE
+        scale_factor = size / BASE_SIZE.to_f
+        image.resize!(image.columns * scale_factor, image.rows * scale_factor)
+      end
 
       # write image to file
       image_path = Tempfile.new(['supermeme', '.png'], File.join(Dir.tmpdir, 'designs')).path
