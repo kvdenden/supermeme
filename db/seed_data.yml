@@ -1,0 +1,102 @@
+# Seed data
+---
+printfiles:
+  t-shirt:
+    width: 1800
+    height: 2400
+    dpi: 150
+
+products:
+  t-shirt:
+    external_id: 71
+    title: Bella + Canvas - 3001 Unisex Short Sleeve Jersey T-Shirt with Tear Away Label
+    description:
+      |
+        This t-shirt is everything you've dreamed of and more. It feels soft and lightweight, with the right amount of stretch. It's comfortable and flattering for both men and women.
+        - 100% combed and ring-spun cotton (heather colors contain polyester)
+        - Fabric weight: 4.2 oz (142 g/m2)
+        - Shoulder-to-shoulder taping
+        - Side-seamed
+        The Male model is wearing a size M. He's 6.2 feet (190 cm) tall, chest circumference 37.7" (96 cm), waist circumference 33.4" (85 cm).
+        The female model is wearing a size M. She's 5.8 feet (178 cm) tall, chest circumference 34.6" (88 cm), waist circumference 27.16" (69 cm), hip circumference 37.7" (96cm).
+    variants:
+      - external_id: 9527
+        color: Black
+        size: XS
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4016
+        color: Black
+        size: S
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4017
+        color: Black
+        size: M
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4018
+        color: Black
+        size: L
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4019
+        color: Black
+        size: XL
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4020
+        color: Black
+        size: 2XL
+        price: 14.45
+        printfile: t-shirt
+      - external_id: 5295
+        color: Black
+        size: 3XL
+        price: 15.55
+        printfile: t-shirt
+      - external_id: 5310
+        color: Black
+        size: 4XL
+        price: 17.45
+        printfile: t-shirt
+      - external_id: 9526
+        color: White
+        size: XS
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4011
+        color: White
+        size: S
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4012
+        color: White
+        size: M
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4013
+        color: White
+        size: L
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4014
+        color: White
+        size: XL
+        price: 12.95
+        printfile: t-shirt
+      - external_id: 4015
+        color: White
+        size: 2XL
+        price: 14.45
+        printfile: t-shirt
+      - external_id: 5294
+        color: White
+        size: 3XL
+        price: 15.55
+        printfile: t-shirt
+      - external_id: 5309
+        color: White
+        size: 4XL
+        price: 17.45
+        printfile: t-shirt
