@@ -1,7 +1,17 @@
-<h1>Write something fun</h1>
-<p>Write something cool and we will make a supreme logo out of it. Yes, that is awesome!</p>
-
-<%= form_tag({ controller: "designs", action: "show" }, method: "get") do %>
-  <%= text_field_tag(:text) %>
-  <%= submit_tag("Submit") %>
-<% end %>
+<div class="container">
+    <div class="row" id="mockup-generator">
+      <div class="col-sm-12" id="generator-title">
+        <h1>Supermeme generator</h1>
+      </div>
+      <div class="col-sm-6">
+        <%= image_tag("mockup-generator.jpg", :alt => "supermeme mockup generator", :class => "logo" ) %>
+      </div>
+      <div class="col-sm-6" id="generator-input">
+        <h4>Write something awesome!</h4>
+        <%= form_tag({ controller: "designs", action: "show" }, method: "get") do %>
+          <%= text_field_tag(:text,"", :id => "text-field",:class => "form-control form-control-lg") %>
+          <%= submit_tag("Meme it", :class => "btn btn-primary") %>
+        <% end %>
+      </div>
+  </div>
+</div>
