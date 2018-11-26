@@ -5,7 +5,10 @@ module Generators
 
     def self.call(text, size: BASE_SIZE)
       # create image
-      image = Magick::Image.new(8000, 1000) { self.background_color = RED }
+      image = Magick::Image.new(8000, 1000) do |image|
+        image.background_color = RED
+        image.format = 'PNG'
+      end
 
       # create and set up draw object
       draw = Magick::Draw.new do
@@ -34,8 +37,8 @@ module Generators
         image.resize!(image.columns * scale_factor, image.rows * scale_factor)
       end
 
-      # return image as png
-      image.tap { |img| img.format = 'PNG' }
+      # return image
+      image
     end
   end
 end
