@@ -5,7 +5,10 @@ module Generators
 
     def self.call(text, size: BASE_SIZE)
       # create image
-      image = Magick::Image.new(8000, 1000) { self.background_color = RED }
+      image = Magick::Image.new(8000, 1000) do |image|
+        image.background_color = RED
+        image.format = 'PNG'
+      end
 
       # create and set up draw object
       draw = Magick::Draw.new do
@@ -34,13 +37,8 @@ module Generators
         image.resize!(image.columns * scale_factor, image.rows * scale_factor)
       end
 
-      # write image to file
-      image_path = Tempfile.new(['supermeme', '.png'], File.join(Dir.tmpdir, 'designs')).path
-      image.write(image_path)
-
-      # return path of file
-      filename = image_path.split("/").last
-      File.join("/designs", filename)
+      # return image
+      image
     end
   end
 end

@@ -3,7 +3,8 @@ class DesignsController < ApplicationController
   end
 
   def show
-    @text = params["text"]
-    @image_path = Generators::Supreme.call(@text)
+    @text = params.fetch("text", "Supermeme")
+    @image_path = generated_image_path(CGI::escape(@text), size: 144)
+    @mockup_path = mockup_image_path(CGI::escape(@text))
   end
 end

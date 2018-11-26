@@ -1,0 +1,2 @@
+class Printfile < ApplicationRecord
+end
