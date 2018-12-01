@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_01_005548) do
+ActiveRecord::Schema.define(version: 2018_12_01_010747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 2018_12_01_005548) do
     t.string "company_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "purchase_order_id"
+    t.bigint "variant_id"
+    t.string "text"
+    t.string "generator"
+    t.integer "quantity", default: 1
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["purchase_order_id"], name: "index_line_items_on_purchase_order_id"
+    t.index ["variant_id"], name: "index_line_items_on_variant_id"
   end
 
   create_table "printfiles", force: :cascade do |t|
@@ -45,6 +57,14 @@ ActiveRecord::Schema.define(version: 2018_12_01_005548) do
     t.index ["external_id"], name: "index_products_on_external_id", unique: true
   end
 
+  create_table "purchase_orders", force: :cascade do |t|
+    t.string "status"
+    t.bigint "address_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address_id"], name: "index_purchase_orders_on_address_id"
+  end
+
   create_table "variants", force: :cascade do |t|
     t.integer "external_id"
     t.bigint "product_id"
@@ -59,6 +79,9 @@ ActiveRecord::Schema.define(version: 2018_12_01_005548) do
     t.index ["product_id"], name: "index_variants_on_product_id"
   end
 
+  add_foreign_key "line_items", "purchase_orders"
+  add_foreign_key "line_items", "variants"
+  add_foreign_key "purchase_orders", "addresses"
   add_foreign_key "variants", "printfiles"
   add_foreign_key "variants", "products"
 end
