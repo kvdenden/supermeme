@@ -23,7 +23,5 @@
 /public/assets
 .byebug_history
 
-/public/designs
-
 # Ignore master key for decrypting credentials and more.
 /config/master.key
