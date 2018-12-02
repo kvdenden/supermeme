@@ -1,24 +1,25 @@
-# README
+# Supermeme
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+![Supermeme](doc/supermeme.png)
 
-Things you may want to cover:
+Easily design your own t-shirt
 
-* Ruby version
+## Development
 
-* System dependencies
+### Requirements
 
-* Configuration
+- ruby 2.5.3 + bundler
+- postgresql
+- imagemagick
 
-* Database creation
+Run local server: `bundle exec rails server`
 
-* Database initialization
+## Testing
 
-* How to run the test suite
+Run the test suite: `bundle exec rspec`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Deployment
 
-* Deployment instructions
+Deploy local master to heroku: `git push heroku master`
 
-* ...
+Deploy local feature branch to heroku: `git push heroku feature-branch:master`
