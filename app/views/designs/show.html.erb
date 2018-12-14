@@ -70,21 +70,25 @@
           </tr>
         </tbody>
       </table>
-      <div class="form-group">
-        <label for="inputSize">Choose your size</label>
-        <select id="inputSize" class="form-control">
-          <option>XS</option>
-          <option>S</option>
-          <option selected>M</option>
-          <option>L</option>
-          <option>XL</option>
-          <option>XXL</option>
-        </select>
-      </div>
-      <%= link_to "Buy now", designs_new_path, :class =>"btn btn-danger" %>
-      <%= link_to "Add to cart", designs_new_path, :class =>"btn btn-primary" %>
+      <%= form_tag("/checkout") do %>
+        <%= hidden_field_tag(:text, @text) %>
+        <div class="form-row">
+          <div class="col">
+            <div class="form-group">
+              <%= label_tag(:size, "Size") %>
+              <%= select_tag(:size, options_for_select(@available_sizes, "M"), { class: "form-control" }) %>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-group">
+              <%= label_tag(:color, "Color") %>
+              <%= select_tag(:color, options_for_select(@available_colors), { class: "form-control" }) %>
+            </div>
+          </div>
+        </div>
+        <%= submit_tag("Buy now", class: "btn btn-primary") %>
+      <% end %>
     </div>
-
   </div>
 
 </div>
