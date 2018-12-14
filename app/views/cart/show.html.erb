@@ -1,0 +1,15 @@
+<div class="container">
+  <% cart.line_items.each do |item| %>
+    <%= item.variant.product.title %>
+    <%= item.variant.color %>
+    <%= item.variant.size %>
+    <%= item.quantity %>
+  <% end %>
+
+  <%= form_tag("/orders") do %>
+    <%= fields_for(:address) do |af| %>
+      <%= af.text_field :street1 %>
+    <% end %>
+    <%= submit_tag("Buy now", class: "btn btn-primary") %>
+  <% end %>
+</div>
