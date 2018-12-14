@@ -32,5 +32,6 @@ class CartController < ApplicationController
   end
 
   def show
+    @order = cart
   end
 end

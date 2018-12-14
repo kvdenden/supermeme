@@ -6,10 +6,41 @@
     <%= item.quantity %>
   <% end %>
 
-  <%= form_tag("/orders") do %>
+  <%= form_for(@order, url: '/orders') do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :email %>
+      <%= f.text_field :email, class: "form-control" %>
+    </div>
     <%= fields_for(:address) do |af| %>
-      <%= af.text_field :street1 %>
+      <div class="form-group">
+        <%= af.label :street1, "Street address" %>
+        <%= af.text_field :street1, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= af.label :street2, "Street address 2 (optional)" %>
+        <%= af.text_field :street2, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= af.label :zip_code, "ZIP or Postcode" %>
+        <%= af.text_field :zip_code, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= af.label :city, "City" %>
+        <%= af.text_field :city, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= af.label :state, "State, Region or Province" %>
+        <%= af.text_field :state, class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= af.label :country_code, "Country" %>
+        <%= af.text_field :country_code, class: "form-control" %>
+      </div>
     <% end %>
-    <%= submit_tag("Buy now", class: "btn btn-primary") %>
+    <%= f.submit("Continue", class: "btn btn-primary") %>
   <% end %>
 </div>
