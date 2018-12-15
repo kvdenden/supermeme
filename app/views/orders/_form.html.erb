@@ -7,7 +7,7 @@
     <%= f.label :email %>
     <%= f.text_field :email, class: "form-control" %>
   </div>
-  <%= fields_for(:address) do |af| %>
+  <%= f.fields_for(:address, address) do |af| %>
     <div class="form-group">
       <%= af.label :street1, "Street address" %>
       <%= af.text_field :street1, class: "form-control" %>

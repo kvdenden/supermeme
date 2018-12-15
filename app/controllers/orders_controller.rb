@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def new
-    @order = cart
+    @order = cart.dup
+    @address = @order.address || Address.new
   end
 
   def create
