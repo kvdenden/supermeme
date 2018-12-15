@@ -44,7 +44,6 @@ gem 'bootstrap'
 gem 'jquery-rails'
 gem 'printful_api'
 gem 'database_cleaner'
-gem 'country_select'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
