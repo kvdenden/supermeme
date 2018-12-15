@@ -22,7 +22,7 @@ module Printful
           address1: order.address.street1,
           address2: order.address.street2,
           city: order.address.city,
-          state_name: order.address.state,
+          state_code: order.address.state,
           country_code: order.address.country_code,
         },
         items: order.line_items.map { |item| line_item_payload(item) }

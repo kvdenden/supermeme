@@ -7,6 +7,8 @@ class OrdersController < ApplicationController
   def create
     @order = cart
     @order.update(order_params)
+    Printful::CreateOrder.new(@order).call
+
     session[:cart_id] = nil
 
     render :show
