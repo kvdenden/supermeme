@@ -17,8 +17,8 @@ module Printful
       {
         external_id: order.id,
         recipient: {
-          name: order.address.recipient_name,
-          company: order.address.company_name,
+          name: order.name,
+          email: order.email,
           address1: order.address.street1,
           address2: order.address.street2,
           city: order.address.city,
