@@ -38,7 +38,7 @@
       </div>
       <div class="form-group">
         <%= af.label :country_code, "Country" %>
-        <%= af.text_field :country_code, class: "form-control" %>
+        <%= af.country_select :country_code, { priority_countries: %w[AU CA DE FR ES NZ GB US], except: %w[CU IQ IR KP SY] }, class: "form-control" %>
       </div>
     <% end %>
     <%= f.submit("Continue", class: "btn btn-primary") %>
