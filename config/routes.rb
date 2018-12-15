@@ -8,4 +8,9 @@ Rails.application.routes.draw do
 
   get 'cart', to: 'cart#show'
   post 'cart/add', to: 'cart#add', as: :add_to_cart
+
+  get 'checkout', to: 'orders#new', as: :checkout
+
+  post 'orders', to: 'orders#create', as: :create_order
+  get 'orders/:id', to: 'orders#show', as: :order
 end
