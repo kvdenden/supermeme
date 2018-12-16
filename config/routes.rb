@@ -13,4 +13,6 @@ Rails.application.routes.draw do
 
   post 'orders', to: 'orders#create', as: :create_order
   get 'orders/:id', to: 'orders#show', as: :order
+
+  resource :charges, only: [:new, :create]
 end
