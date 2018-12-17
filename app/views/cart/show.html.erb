@@ -1,0 +1,14 @@
+<div class="container">
+  <% cart.line_items.each do |item| %>
+    <%= item.variant.product.title %>
+    <%= item.variant.color %>
+    <%= item.variant.size %>
+    <%= item.quantity %>
+    <%= item.text %>
+    <br />
+  <% end %>
+
+  <hr />
+
+  <%= link_to "Checkout", checkout_path, class: 'btn btn-primary' %>
+</div>
