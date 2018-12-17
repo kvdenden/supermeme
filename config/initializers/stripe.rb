@@ -1,5 +1,3 @@
-Rails.configuration.stripe = Rails.application.credentials.dig(Rails.env.to_sym, :stripe)
+Rails.configuration.stripe = Rails.application.credentials[:stripe]
 
-if Rails.configuration.stripe
-  Stripe.api_key = Rails.configuration.stripe[:secret_key]
-end
+Stripe.api_key = Rails.configuration.stripe[:secret_key]
