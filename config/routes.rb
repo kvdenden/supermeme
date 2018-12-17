@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   post 'cart/add', to: 'cart#add', as: :add_to_cart
 
   get 'checkout', to: 'orders#new', as: :checkout
-
+  get 'checkout/pay', to: 'orders#pay', as: :checkout_pay
   resources :orders, only: [:create, :show]
-  resources :charges, only: [:new, :create]
+
+  post 'charges', to: 'orders#charge'
 end

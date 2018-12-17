@@ -1,4 +1,4 @@
-<%= form_for(order) do |f| %>
+<%= form_for(order, url: orders_path) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :name, class: "form-control" %>
