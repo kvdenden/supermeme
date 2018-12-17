@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
-  get 'designs/new'
-  get 'designs/show'
+  resource :design, only: [:new, :show]
 
   get 'images/mockups/*text.:format', to: 'images#mockup', as: :mockup_image, defaults: { design: 'supreme', format: 'jpg' }
   get 'images/printfiles/:variant_id/:design/*text.:format', to: 'images#product_variant', as: :product_variant_image, defaults: { design: 'supreme', format: 'png' }
@@ -11,8 +10,6 @@ Rails.application.routes.draw do
 
   get 'checkout', to: 'orders#new', as: :checkout
 
-  post 'orders', to: 'orders#create', as: :create_order
-  get 'orders/:id', to: 'orders#show', as: :order
-
-  resource :charges, only: [:new, :create]
+  resources :orders, only: [:create, :show]
+  resources :charges, only: [:new, :create]
 end
