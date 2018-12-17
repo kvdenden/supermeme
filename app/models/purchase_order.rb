@@ -8,6 +8,10 @@ class PurchaseOrder < ApplicationRecord
     line_items.sum(&:price) + shipping_fee
   end
 
+  def price_in_cents
+    (price * 100).to_i
+  end
+
   def item_count
     line_items.sum(&:quantity)
   end
