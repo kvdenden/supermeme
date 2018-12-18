@@ -78,6 +78,7 @@ GEM
     faraday (0.15.4)
       multipart-post (>= 1.2, < 3)
     ffi (1.9.25)
+    geocoder (1.5.0)
     globalid (0.4.1)
       activesupport (>= 4.2.0)
     high_voltage (3.1.0)
@@ -230,6 +231,7 @@ DEPENDENCIES
   database_cleaner
   factory_bot_rails
   faker
+  geocoder
   high_voltage (~> 3.1)
   jbuilder (~> 2.5)
   jquery-rails
