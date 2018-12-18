@@ -10,7 +10,12 @@ class CartController < ApplicationController
     generator = "supreme"
 
     order = cart
-    order.save unless order.persisted?
+
+    if order.new_record?
+      country_code = request.location.country_code
+      order.address = Address.new(country_code: country_code) if country_code.present?
+      order.save
+    end
 
     existing_item = order.line_items.where(variant: variant, text: text, generator: generator).first
 
