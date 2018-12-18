@@ -9,6 +9,10 @@
   </div>
   <%= f.fields_for(:address, address) do |af| %>
     <div class="form-group">
+      <%= af.label :country_code, "Country" %>
+      <%= af.select :country_code, country_options_for_select(selected: address.country_code), {}, class: "form-control" %>
+    </div>
+    <div class="form-group">
       <%= af.label :street1, "Street address" %>
       <%= af.text_field :street1, class: "form-control" %>
     </div>
@@ -24,14 +28,17 @@
       <%= af.label :city, "City" %>
       <%= af.text_field :city, class: "form-control" %>
     </div>
-    <div class="form-group">
+    <div class="form-group select-state" style="display: none;">
       <%= af.label :state_code, "State, Region or Province" %>
-      <%= af.text_field :state_code, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= af.label :country_code, "Country" %>
-      <%= af.select :country_code, options_for_select(Countries.all.invert, :US), { }, class: "form-control" %>
+      <%= af.select :state_code, [], {}, class: "form-control" %>
     </div>
   <% end %>
   <%= f.submit("Continue", class: "btn btn-primary") %>
 <% end %>
+<script type='text/javascript'>
+  countryStateSelect(
+    "#purchase_order_address_attributes_country_code",
+    "#purchase_order_address_attributes_state_code",
+    ".select-state"
+  );
+</script>

@@ -2,12 +2,12 @@
 class Countries
   include Singleton
 
-  def self.all
-    instance.countries
+  def self.list
+    instance.list
   end
 
-  def self.states(country_code)
-    instance.states(country_code)
+  def self.states_for(country_code)
+    instance.states_for(country_code)
   end
 
   def initialize
@@ -20,18 +20,20 @@ class Countries
     end
   end
 
-  def countries
+  def list
     @countries.transform_values { |country| country["name"] }
   end
 
-  def states(country_code)
-    country = @countries[country_code.upcase.to_sym]
+  def states_for(country_code)
+    country = country_code && @countries[country_code.upcase.to_sym]
 
     if country && country["states"]
       country["states"].each_with_object({}) do |state, hash|
         state_code = state["code"].to_sym
         hash[state_code] = state["name"]
       end
+    else
+      {}
     end
   end
 end

@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :orders, only: [:create, :show]
 
   post 'charges', to: 'orders#charge'
+  get 'countries/:country_code/states', to: 'countries#states', as: :country_states
 end
