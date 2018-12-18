@@ -10,6 +10,10 @@ class Countries
     instance.states_for(country_code)
   end
 
+  def self.lookup(country_code)
+    instance.lookup(country_code)
+  end
+
   def initialize
     data = File.read("config/countries.json")
 
@@ -35,5 +39,9 @@ class Countries
     else
       {}
     end
+  end
+
+  def lookup(country_code)
+    country_code && @countries.dig(country_code.upcase.to_sym, "name")
   end
 end

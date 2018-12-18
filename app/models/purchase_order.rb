@@ -1,8 +1,12 @@
 class PurchaseOrder < ApplicationRecord
-  belongs_to :address, optional: true
+  belongs_to :address
   has_many :line_items
 
   accepts_nested_attributes_for :address
+
+  validates :name, presence: true
+  validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
+  validates :line_items, presence: true
 
   def price
     line_items.sum(&:price) + shipping_fee
