@@ -5,13 +5,37 @@ class OrdersController < ApplicationController
   end
 
   def create
+    cart.update(order_params)
+
+    redirect_to checkout_pay_url
+  end
+
+  def pay
     @order = cart
-    @order.update(order_params)
+  end
+
+  def charge
+    @order = PurchaseOrder.find(params[:order_id])
+
+    # create stripe charge
+    Stripe::CreateCharge.new(@order).call(params[:stripeToken])
+
+    # TODO: mark order as paid
+    # order.update(state: 'paid')
+
+    # send order to printful
+    # TODO: move this to a background job
     Printful::CreateOrder.new(@order).call
 
+    # clear cart
     session[:cart_id] = nil
 
+    # TODO: send email to customer
+
     render :show
+  rescue Stripe::CardError => e
+    flash[:error] = e.message
+    redirect_to checkout_pay_path
   end
 
   def show
@@ -21,6 +45,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:purchase_order).permit(:name, :email, address_attributes: [:street1, :street2, :city, :state, :zip_code, :country_code])
+    params.require(:purchase_order).permit(:name, :email, address_attributes: [:street1, :street2, :city, :state, :zip_code, :state_code, :country_code])
   end
 end
