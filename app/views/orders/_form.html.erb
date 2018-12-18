@@ -36,6 +36,9 @@
   <%= f.submit("Continue", class: "btn btn-primary") %>
 <% end %>
 <script type='text/javascript'>
+  $("select").select2({
+      theme: "bootstrap"
+  });
   countryStateSelect(
     "#purchase_order_address_attributes_country_code",
     "#purchase_order_address_attributes_state_code",
