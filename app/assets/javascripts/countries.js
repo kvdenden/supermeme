@@ -2,9 +2,10 @@ function countryStateSelect(countrySelector, stateSelector, stateWrapperSelector
   function loadStates(countryCode) {
     //Perform AJAX request to get the data
     $.ajax({
-      url: "countries/" + countryCode + "/states",
+      url: "countries/states",
       type: 'get',
       dataType: 'json',
+      data: { country_code: countryCode },
       success: function (data) {
         updateStateField(data);
       }
