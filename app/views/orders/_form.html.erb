@@ -1,8 +1,8 @@
 <%= simple_form_for(order, url: orders_path) do |f| %>
   <%= f.input :name %>
-  <%= f.input :email %>
+  <%= f.input :email, required: true %>
   <%= f.fields_for(:address, address) do |af| %>
-    <%= af.input :country_code, collection: Countries.list.invert, label: "Country" %>
+    <%= af.input :country_code, required: true, collection: Countries.list.invert, label: "Country" %>
     <%= af.input :street1, label: "Street address" %>
     <%= af.input :street2, label: "Street address 2 (optional)" %>
     <%= af.input :zip_code, label: "ZIP or Postcode" %>

@@ -10,9 +10,12 @@ class OrdersController < ApplicationController
   end
 
   def create
-    if cart.update(order_params)
+    @order = cart
+
+    if @order.update(order_params)
       redirect_to checkout_pay_url
     else
+      @order.save(validate: false)
       flash[:validate] = true
       redirect_to action: :new
     end
