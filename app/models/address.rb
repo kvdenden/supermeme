@@ -20,7 +20,7 @@ class Address < ApplicationRecord
 
   def validate_state_for_country
     valid_state_codes = Countries.states_for(country_code).keys
-    if valid_state_codes.present? && !valid_state_codes.any?(state_code)
+    if valid_state_codes.present? && !valid_state_codes.any?(state_code.upcase.to_sym)
       errors.add(:state_code, "is invalid")
     end
   end
