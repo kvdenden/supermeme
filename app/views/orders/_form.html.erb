@@ -1,3 +1,17 @@
+<%= simple_form_for(order, url: orders_path) do |f| %>
+  <%= f.input :name %>
+  <%= f.input :email %>
+  <%= f.fields_for(:address, address) do |af| %>
+    <%= af.input :country_code, collection: Countries.list.invert, label: "Country" %>
+    <%= af.input :street1, label: "Street address" %>
+    <%= af.input :street2, label: "Street address 2 (optional)" %>
+    <%= af.input :zip_code, label: "ZIP or Postcode" %>
+    <%= af.input :city %>
+    <%= af.input :state_code, collection: [], label: "State, Region or Province" %>
+    <%= f.button :submit, class: "btn-primary" %>
+  <% end %>
+<% end %>
+
 <%= form_for(order, url: orders_path) do |f| %>
   <div class="form-group">
     <%= f.label :name %>
@@ -40,8 +54,8 @@
       theme: "bootstrap"
   });
   countryStateSelect(
-    "#purchase_order_address_attributes_country_code",
-    "#purchase_order_address_attributes_state_code",
-    ".select-state"
+    "select[name='purchase_order[address_attributes][country_code]']",
+    "select[name='purchase_order[address_attributes][state_code]']",
+    ".purchase_order_address_state_code"
   );
 </script>
