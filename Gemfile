@@ -47,6 +47,7 @@ gem 'database_cleaner'
 gem 'stripe'
 gem 'select2-rails'
 gem 'geocoder'
+gem 'simple_form'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
