@@ -1,53 +1,23 @@
 <%= simple_form_for(order, url: orders_path) do |f| %>
-  <%= f.input :name %>
-  <%= f.input :email, required: true %>
-  <%= f.fields_for(:address, address) do |af| %>
-    <%= af.input :country_code, required: true, collection: Countries.list.invert, label: "Country" %>
-    <%= af.input :street1, label: "Street address" %>
-    <%= af.input :street2, label: "Street address 2 (optional)" %>
-    <%= af.input :zip_code, label: "ZIP or Postcode" %>
-    <%= af.input :city %>
-    <%= af.input :state_code, collection: [], label: "State, Region or Province" %>
-    <%= f.button :submit, class: "btn-primary" %>
-  <% end %>
-<% end %>
-
-<%= form_for(order, url: orders_path) do |f| %>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :email, required: true %>
+    <%= f.fields_for(:address, address) do |af| %>
+      <%= af.input :street1 %>
+      <%= af.input :street2 %>
+      <%= af.input :country_code, required: true, collection: Countries.list.invert %>
+      <%= af.input :state_code, collection: [] %>
+      <div class="row">
+        <%= af.input :zip_code, wrapper_html: { class: "col" } %>
+        <%= af.input :city, wrapper_html: { class: "col" } %>
+      </div>
+    <% end %>
   </div>
-  <div class="form-group">
-    <%= f.label :email %>
-    <%= f.email_field :email, class: "form-control" %>
+  <div class="form-actions">
+    <%= f.button :submit, "Continue", class: "btn-primary" %>
   </div>
-  <%= f.fields_for(:address, address) do |af| %>
-    <div class="form-group">
-      <%= af.label :country_code, "Country" %>
-      <%= af.select :country_code, country_options_for_select(selected: address.country_code), {}, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= af.label :street1, "Street address" %>
-      <%= af.text_field :street1, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= af.label :street2, "Street address 2 (optional)" %>
-      <%= af.text_field :street2, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= af.label :zip_code, "ZIP or Postcode" %>
-      <%= af.text_field :zip_code, class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= af.label :city, "City" %>
-      <%= af.text_field :city, class: "form-control" %>
-    </div>
-    <div class="form-group select-state" style="display: none;">
-      <%= af.label :state_code, "State, Region or Province" %>
-      <%= af.select :state_code, [], {}, class: "form-control" %>
-    </div>
-  <% end %>
-  <%= f.submit("Continue", class: "btn btn-primary") %>
 <% end %>
 <script type='text/javascript'>
   $("select").select2({

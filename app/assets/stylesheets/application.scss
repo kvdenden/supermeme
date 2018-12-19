@@ -30,6 +30,15 @@ footer {
   color:darkgray;
 }
 
+form {
+  label.required {
+    abbr {
+      text-decoration: none;
+      color: $red;
+    }
+  }
+}
+
 
 //Home Page
 .jumbotron {
