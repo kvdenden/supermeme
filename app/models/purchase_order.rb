@@ -7,6 +7,9 @@ class PurchaseOrder < ApplicationRecord
   validates :name, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :line_items, presence: true
+  validates :shipping_fee, presence: true, numericality: { greater_than_or_equal_to: 0 }
+
+  before_create :set_shipping_fee
 
   def price
     line_items.sum(&:price) + shipping_fee
@@ -24,7 +27,9 @@ class PurchaseOrder < ApplicationRecord
     item_count.zero?
   end
 
-  def shipping_fee
-    item_count > 0 ? 10 + (item_count - 1) * 2 : 0
+  private
+
+  def set_shipping_fee
+    self.shipping_fee = 10
   end
 end

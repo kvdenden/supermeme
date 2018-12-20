@@ -23,80 +23,80 @@ products:
       - external_id: 9527
         color: Black
         size: XS
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4016
         color: Black
         size: S
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4017
         color: Black
         size: M
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4018
         color: Black
         size: L
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4019
         color: Black
         size: XL
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4020
         color: Black
         size: 2XL
-        price: 14.45
+        price: 25.00
         printfile: t-shirt
       - external_id: 5295
         color: Black
         size: 3XL
-        price: 15.55
+        price: 25.00
         printfile: t-shirt
       - external_id: 5310
         color: Black
         size: 4XL
-        price: 17.45
+        price: 25.00
         printfile: t-shirt
       - external_id: 9526
         color: White
         size: XS
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4011
         color: White
         size: S
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4012
         color: White
         size: M
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4013
         color: White
         size: L
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4014
         color: White
         size: XL
-        price: 12.95
+        price: 25.00
         printfile: t-shirt
       - external_id: 4015
         color: White
         size: 2XL
-        price: 14.45
+        price: 25.00
         printfile: t-shirt
       - external_id: 5294
         color: White
         size: 3XL
-        price: 15.55
+        price: 25.00
         printfile: t-shirt
       - external_id: 5309
         color: White
         size: 4XL
-        price: 17.45
+        price: 25.00
         printfile: t-shirt
