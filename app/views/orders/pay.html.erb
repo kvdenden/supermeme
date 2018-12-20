@@ -1,17 +1,30 @@
-<%= form_tag charges_path do %>
-  <% if flash[:error].present? %>
-    <div id="error_explanation">
-      <p><%= flash[:error] %></p>
+<div class="container">
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Order summary</h2>
+      <div class="card-text">
+        <%= render "orders/summary", order: cart %>
+      </div>
     </div>
+  </div>
+
+  <br />
+
+  <%= form_tag charges_path do %>
+    <% if flash[:error].present? %>
+      <div class="alert alert-danger">
+        <%= flash[:error] %>
+      </div>
+    <% end %>
+
+    <%= hidden_field_tag(:order_id, @order.id) %>
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+            data-description="Supermeme"
+            data-amount="<%= @order.total_in_cents %>"
+            data-email="<%= @order.email %>"
+            data-allow-remember-me="false"
+            data-locale="auto"></script>
   <% end %>
-
-  <%= hidden_field_tag(:order_id, @order.id) %>
-
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Supermeme"
-          data-amount="<%= @order.price_in_cents %>"
-          data-email="<%= @order.email %>"
-          data-allow-remember-me="false"
-          data-locale="auto"></script>
-<% end %>
+</div>

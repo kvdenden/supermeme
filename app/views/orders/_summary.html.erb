@@ -1,0 +1,63 @@
+<div>
+  <p>
+    <%= order.name %>
+    <br />
+    <%= order.email %>
+  </p>
+  <p>
+    <%= render "address", address: order.address %>
+  </p>
+</div>
+<hr />
+<% order.line_items.each do |item| %>
+  <div class="row">
+    <div class="col-4">
+      <div class="text-center">
+        <br />
+        <%= image_tag(generated_image_path(item.text, size: 16), alt: item.text) %>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="text-right">
+        <strong><%= number_to_currency(item.price) %></strong>
+      </div>
+      <p class="text-right small">
+        <%= item.variant.product.title %>
+        <strong><%= item.variant.color %> <%= item.variant.size %></strong>
+        <br />
+        x <%= item.quantity %>
+      </p>
+    </div>
+  </div>
+<% end %>
+<hr />
+<div class="row">
+  <div class="col-8">
+    <p>Subtotal</p>
+  </div>
+  <div class="col-4">
+    <p class="text-right">
+      <strong><%= number_to_currency(order.subtotal) %></strong>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-8">
+    <p>Shipping fee</p>
+  </div>
+  <div class="col-4">
+    <p class="text-right">
+      <strong><%= number_to_currency(order.shipping_fee) %></strong>
+    </p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-8">
+    <p>Total</p>
+  </div>
+  <div class="col-4">
+    <p class="text-right">
+      <strong><%= number_to_currency(order.total) %></strong>
+    </p>
+  </div>
+</div>

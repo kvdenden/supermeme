@@ -31,10 +31,45 @@
             <% end %>
           </td>
           <td>
-            <%= number_to_currency(item.price) %>
+            <div class="text-right">
+              <%= number_to_currency(item.price) %>
+            </div>
           </td>
         </tr>
       <% end %>
+      <tr>
+        <td> </td>
+        <td colspan="2">
+          Subtotal
+        </td>
+        <td>
+          <div class="text-right">
+            <%= number_to_currency(cart.subtotal) %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td colspan="2">
+          Shipping fee
+        </td>
+        <td>
+          <div class="text-right">
+            <%= number_to_currency(cart.shipping_fee) %>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td> </td>
+        <td colspan="2">
+          <strong>Total</strong>
+        </td>
+        <td>
+          <div class="text-right">
+            <strong><%= number_to_currency(cart.total) %></strong>
+          </div>
+        </td>
+      </tr>
     </tbody>
   </table>
 </div>
