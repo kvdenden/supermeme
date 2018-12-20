@@ -6,7 +6,9 @@ Rails.application.routes.draw do
   get 'images/:design(/x:size)/*text.:format', to: 'images#show', as: :generated_image, defaults: { design: 'supreme', format: 'png' }
 
   get 'cart', to: 'cart#show'
+  post 'cart/update', to: 'cart#update', as: :update_cart
   post 'cart/add', to: 'cart#add', as: :add_to_cart
+  post 'cart/remove', to: 'cart#remove', as: :remove_from_cart
 
   get 'checkout', to: 'orders#new', as: :checkout
   get 'checkout/pay', to: 'orders#pay', as: :checkout_pay
