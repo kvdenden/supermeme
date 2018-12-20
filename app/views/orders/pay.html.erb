@@ -1,17 +1,15 @@
 <div class="container">
-  <div class="row">
-    <div class="col-6">
-      <%= render "orders/shipping_details", order: cart %>
-    </div>
-    <div class="col-6">
-      <div class="card">
-        <div class="card-body">
-          <%= render "cart/summary", cart: cart %>
-        </div>
+  <div class="card">
+    <div class="card-body">
+      <h2 class="card-title">Order summary</h2>
+      <div class="card-text">
+        <%= render "orders/summary", order: cart %>
       </div>
     </div>
   </div>
-  <hr />
+
+  <br />
+
   <%= form_tag charges_path do %>
     <% if flash[:error].present? %>
       <div class="alert alert-danger">
