@@ -26,7 +26,8 @@ module Printful
           state_code: order.address.state_code,
           country_code: order.address.country_code,
         },
-        items: order.line_items.map { |item| line_item_payload(item) }
+        items: order.line_items.map { |item| line_item_payload(item) },
+        confirm: Rails.configuration.printful[:confirm_order]
       }
     end
 
