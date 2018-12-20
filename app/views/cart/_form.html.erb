@@ -1,0 +1,8 @@
+<% cart.line_items.each do |item| %>
+  <%= item.variant.product.title %>
+  <%= item.variant.color %>
+  <%= item.variant.size %>
+  <%= item.quantity %>
+  <%= item.text %>
+  <br />
+<% end %>
