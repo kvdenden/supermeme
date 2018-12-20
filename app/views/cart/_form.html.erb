@@ -1,8 +1,40 @@
-<% cart.line_items.each do |item| %>
-  <%= item.variant.product.title %>
-  <%= item.variant.color %>
-  <%= item.variant.size %>
-  <%= item.quantity %>
-  <%= item.text %>
-  <br />
-<% end %>
+<div class="table-responsive">
+  <table class="cart table">
+    <thead>
+      <tr>
+        <th colspan="2">Item</th>
+        <th>Quantity</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% cart.line_items.each do |item| %>
+        <tr>
+          <td>
+            <div class="text-center">
+              <%= link_to image_tag(mockup_image_path(item.text, width: 128), alt: "#{item.variant.color} T-Shirt with \"#{item.text}\""), design_path(text: item.text) %>
+              <br />
+              <%= link_to image_tag(generated_image_path(item.text, size: 16), alt: item.text), design_path(text: item.text) %>
+            </div>
+          </td>
+          <td>
+            <%= item.variant.color %>
+            <%= item.variant.size %>
+            <%= item.variant.product.title %>
+            <br />
+            <%= link_to "Remove", remove_from_cart_path(line_item_id: item.id), method: :post %>
+          </td>
+          <td>
+            <%= form_tag(update_cart_path) do %>
+              <%= hidden_field_tag :line_item_id, item.id %>
+              <%= number_field_tag :quantity, item.quantity, min: 1, onchange: "this.form.submit()" %>
+            <% end %>
+          </td>
+          <td>
+            <%= number_to_currency(item.price) %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
