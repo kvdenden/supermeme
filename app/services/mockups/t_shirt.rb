@@ -11,7 +11,7 @@ module Mockups
       offset_y = -30
       mockup.composite!(resized_design, Magick::CenterGravity, 0, offset_y, Magick::OverCompositeOp)
 
-      mockup.resize_to_fit(max_width, max_height)
+      mockup.resize_to_fit(max_width, max_height).sharpen(0)
     end
   end
 end

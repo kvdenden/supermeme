@@ -33,12 +33,14 @@ class ImagesController < ApplicationController
     designer = DESIGNS.fetch(params["design"].to_sym, nil)
     return head 404 unless designer
 
+    width = params.fetch("width", 1200)
+
     variant = Variant.first # TODO: make this better :)
     mockup_generator = Mockups::TShirt
 
     text = params.fetch("text", "Supermeme")
     design = designer.call(CGI::unescape(text), variant)
-    mockup = mockup_generator.call(design)
+    mockup = mockup_generator.call(design, max_width: width)
 
     send_data mockup.to_blob, type: mockup.mime_type, disposition: 'inline'
   end
