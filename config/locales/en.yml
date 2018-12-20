@@ -31,3 +31,14 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      purchase_order:
+        email: "Email address"
+      address:
+        street1: "Street address"
+        street2: "Street address 2"
+        state_code: "State, Region or Province"
+        zip_code: "ZIP or Postcode"
+        country_code: "Country"

@@ -1,13 +1,27 @@
 class OrdersController < ApplicationController
   def new
+    redirect_to root_url if cart.empty?
+
     @order = cart.dup
+
     @address = @order.address || Address.new
+
+    if flash[:validate]
+      @order.validate
+      @address.validate
+    end
   end
 
   def create
-    cart.update(order_params)
+    @order = cart
 
-    redirect_to checkout_pay_url
+    if @order.update(order_params)
+      redirect_to action: :pay
+    else
+      @order.save(validate: false)
+      flash[:validate] = true
+      redirect_to action: :new
+    end
   end
 
   def pay
