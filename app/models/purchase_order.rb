@@ -20,6 +20,10 @@ class PurchaseOrder < ApplicationRecord
     line_items.sum(&:quantity)
   end
 
+  def empty?
+    item_count.zero?
+  end
+
   def shipping_fee
     item_count > 0 ? 10 + (item_count - 1) * 2 : 0
   end
