@@ -11,12 +11,16 @@ class PurchaseOrder < ApplicationRecord
 
   before_create :set_shipping_fee
 
-  def price
-    line_items.sum(&:price) + shipping_fee
+  def total
+    subtotal + shipping_fee
   end
 
-  def price_in_cents
-    (price * 100).to_i
+  def subtotal
+    line_items.sum(&:price)
+  end
+
+  def total_in_cents
+    (total * 100).to_i
   end
 
   def item_count

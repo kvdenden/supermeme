@@ -24,7 +24,7 @@
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
             data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
             data-description="Supermeme"
-            data-amount="<%= @order.price_in_cents %>"
+            data-amount="<%= @order.total_in_cents %>"
             data-email="<%= @order.email %>"
             data-allow-remember-me="false"
             data-locale="auto"></script>

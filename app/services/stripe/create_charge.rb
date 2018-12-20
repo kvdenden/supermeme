@@ -14,8 +14,9 @@ module Stripe
 
       charge = Stripe::Charge.create(
         :customer    => customer.id,
-        :amount      => order.price_in_cents,
-        :description => 'Rails Stripe customer',
+        :amount      => order.total_in_cents,
+        :name        => 'Supermeme',
+        :description => 'Supermeme designs',
         :currency    => 'usd'
       )
     end
