@@ -2,7 +2,9 @@
   <% if cart.empty? %>
     Your Shopping Cart is empty.
   <% else %>
-    <%= render "cart/form", cart: cart %>
+    <div id="cart-form">
+      <%= render "cart/form", cart: cart %>
+    </div>
 
     <hr />
 

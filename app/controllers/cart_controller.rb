@@ -37,19 +37,25 @@ class CartController < ApplicationController
   end
 
   def remove
-    line_item = LineItem.find_by(id: params[:line_item_id])
+    line_item = cart.line_items.find_by(id: params[:line_item_id])
     line_item.destroy if line_item
 
-    redirect_to action: :show
+    respond_to do |format|
+      format.js { render :update }
+      format.html { redirect_to action: :show }
+    end
   end
 
   def update
-    line_item = LineItem.find_by(id: params[:line_item_id])
+    line_item = cart.line_items.find_by(id: params[:line_item_id])
     quantity = params[:quantity].to_i
 
-    line_item.update(quantity: quantity) if quantity.positive?
+    line_item.update(quantity: quantity) if line_item && quantity.positive?
 
-    redirect_to action: :show
+    respond_to do |format|
+      format.js { render :update }
+      format.html { redirect_to action: :show }
+    end
   end
 
   def show
