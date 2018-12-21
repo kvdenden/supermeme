@@ -34,8 +34,7 @@ class OrdersController < ApplicationController
     # create stripe charge
     Stripe::CreateCharge.new(@order).call(params[:stripeToken])
 
-    # TODO: mark order as paid
-    # order.update(state: 'paid')
+    order.update(state: 'paid')
 
     # send order to printful
     # TODO: move this to a background job
