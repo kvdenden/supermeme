@@ -2,8 +2,15 @@ class ApplicationController < ActionController::Base
   helper_method :cart
 
   def cart
-    if !session[:cart_id].nil?
-      PurchaseOrder.find(session[:cart_id])
+    cart_id = session[:cart_id]
+    if cart_id.present?
+      old_cart = PurchaseOrder.find_by(id: cart_id)
+      if old_cart.nil?
+        session[:cart_id] = nil
+        PurchaseOrder.new
+      else
+        old_cart
+      end
     else
       PurchaseOrder.new
     end
