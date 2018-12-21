@@ -1,4 +1,6 @@
 class ImagesController < ApplicationController
+  before_action :cache_response
+
   DESIGNS = {
     supreme: Designs::Supreme
   }
@@ -43,5 +45,11 @@ class ImagesController < ApplicationController
     mockup = mockup_generator.call(design, max_width: width)
 
     send_data mockup.to_blob, type: mockup.mime_type, disposition: 'inline'
+  end
+
+  private
+
+  def cache_response
+    fresh_when(last_modified: LAST_DEPLOY, public: true)
   end
 end

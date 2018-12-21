@@ -1,7 +1,8 @@
 module Mockups
   class TShirt
     def self.call(design, max_width: 1200, max_height: 1200)
-      mockup_file = File.open('./lib/assets/mockups/tshirt-black.jpg')
+      mockup_file_path = File.join(__dir__, "assets", "tshirt-black.jpg")
+      mockup_file = File.open(mockup_file_path)
       mockup = Magick::Image.read(mockup_file).first
 
       canvas_width = 300
