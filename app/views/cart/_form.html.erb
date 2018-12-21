@@ -22,10 +22,10 @@
             <%= item.variant.size %>
             <%= item.variant.product.title %>
             <br />
-            <%= link_to "Remove", remove_from_cart_path(line_item_id: item.id), method: :post %>
+            <%= link_to "Remove", remove_from_cart_path(line_item_id: item.id), remote: true, method: :post %>
           </td>
           <td>
-            <%= form_tag(update_cart_path) do %>
+            <%= form_tag(update_cart_path, remote: true, authenticity_token: true) do %>
               <%= hidden_field_tag :line_item_id, item.id %>
               <%= number_field_tag :quantity, item.quantity, min: 1, onchange: "this.form.submit()" %>
             <% end %>

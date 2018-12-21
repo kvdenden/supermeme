@@ -1,0 +1,6 @@
+<% if cart.empty? %>
+  var cartPath = "<%= cart_path %>";
+  document.location.href = cartPath;
+<% else %>
+  $("#cart-form").html("<%= escape_javascript(render "cart/form", cart: cart) %>");
+<% end %>
