@@ -27,6 +27,11 @@ module Printful
           country_code: order.address.country_code,
         },
         items: order.line_items.map { |item| line_item_payload(item) },
+        retail_costs: {
+          subtotal: order.subtotal,
+          shipping: order.shipping_fee,
+          total: order.total
+        },
         confirm: Rails.configuration.printful[:confirm_order]
       }
     end
@@ -35,6 +40,8 @@ module Printful
       {
         variant_id: item.variant.external_id,
         quantity: item.quantity,
+        retail_price: item.unit_price,
+        name: item.title,
         files: [{
           url: Rails.application.routes.url_helpers.product_variant_image_url(variant_id: item.variant_id, text: item.text)
         }]
