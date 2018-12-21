@@ -1,6 +1,6 @@
 class PurchaseOrder < ApplicationRecord
-  belongs_to :address
-  has_many :line_items
+  belongs_to :address, dependent: :destroy
+  has_many :line_items, dependent: :destroy
 
   accepts_nested_attributes_for :address
 
