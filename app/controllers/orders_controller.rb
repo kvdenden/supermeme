@@ -43,7 +43,8 @@ class OrdersController < ApplicationController
     # clear cart
     session[:cart_id] = nil
 
-    # TODO: send email to customer
+    # send order confirmation email
+    OrderMailer.with(order: @order).order_confirmation.deliver_later
 
     render :show
   rescue Stripe::CardError => e

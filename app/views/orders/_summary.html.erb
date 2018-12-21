@@ -5,7 +5,7 @@
     <%= order.email %>
   </p>
   <p>
-    <%= render "address", address: order.address %>
+    <%= render "shared/address", address: order.address %>
   </p>
 </div>
 <hr />
@@ -14,7 +14,7 @@
     <div class="col-4">
       <div class="text-center">
         <br />
-        <%= image_tag(generated_image_path(item.text, size: 16), alt: item.text) %>
+        <%= image_tag(generated_image_url(item.text, size: 16), alt: item.text) %>
       </div>
     </div>
     <div class="col-8">
