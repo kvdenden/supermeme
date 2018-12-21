@@ -35,6 +35,8 @@ module Printful
       {
         variant_id: item.variant.external_id,
         quantity: item.quantity,
+        retail_price: item.price,
+        name: item.title,
         files: [{
           url: Rails.application.routes.url_helpers.product_variant_image_url(variant_id: item.variant_id, text: item.text)
         }]

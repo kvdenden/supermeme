@@ -8,6 +8,10 @@ class LineItem < ApplicationRecord
 
   before_validation :update_price
 
+  def title
+    "\"#{text}\" #{variant.color} #{variant.product.title}, #{variant.size}"
+  end
+
   private
 
   def update_price
