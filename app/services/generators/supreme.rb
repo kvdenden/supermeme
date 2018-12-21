@@ -16,7 +16,7 @@ module Generators
           self.gravity = Magick::CenterGravity
           self.fill = "white"
           self.pointsize = 720
-          self.font = "./lib/assets/Futura Heavy Italic.ttf"
+          self.font = File.join(__dir__, "assets", "Futura Heavy Italic.ttf")
         end
         # reduce spacing between letters
         draw.kerning = -36
