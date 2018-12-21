@@ -8,7 +8,7 @@
       <%= af.input :street1 %>
       <%= af.input :street2 %>
       <%= af.input :country_code, required: true, collection: Countries.list.invert %>
-      <%= af.input :state_code, collection: [] %>
+      <%= af.input :state_code, collection: Countries.states_for(address.country_code).invert %>
       <div class="row">
         <%= af.input :zip_code, wrapper_html: { class: "col" } %>
         <%= af.input :city, wrapper_html: { class: "col" } %>
