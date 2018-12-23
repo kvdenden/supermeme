@@ -14,29 +14,71 @@
 @import "bootstrap";
 @import "select2";
 @import "select2-bootstrap";
+@import "font-awesome";
 
-$red: #D82122;
+$supreme-red: #D82122;
+
+@import "home";
+@import "designs";
+
 
 body {
-  background-color: #FDFFFC;
+  min-height: 100vh;
 }
 
 nav {
-  background-color: $red;
+  background-color: $supreme-red;
+}
+
+h1.page-title {
+  margin: 0.5em 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  @media screen and (min-width: 576px) {
+    text-align: left;
+  }
 }
 
 footer {
-  background-color: black;
-  color:darkgray;
+  margin-top: 2em;
+  text-align: center;
+
+  a {
+    color: lightgray;
+    &:hover {
+      color: white;
+    }
+  }
+
+  @media screen and (min-width: 576px) {
+    text-align: left;
+
+    .social-media {
+      text-align: right;
+    }
+  }
+}
+
+.btn-supreme {
+  &:link, &:visited, &:hover, &:active {
+    color:#FDFFFC;
+    background-color: $supreme-red;
+    border-color: $supreme-red;
+  }
 }
 
 form {
   label.required {
     abbr {
       text-decoration: none;
-      color: $red;
+      color: $supreme-red;
     }
   }
+}
+
+img {
+  max-width: 100%;
 }
 
 table.cart {
@@ -45,195 +87,7 @@ table.cart {
   }
 }
 
-
-//Home Page
-.jumbotron {
-
-}
-//Hero
-#hero {
-  background: image-url('hero.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height:100vh;
-  text-align: center;
-  display:flex;
-  align-items:center;
-
-    h1 {
-      color:white;
-      padding:30px 0px;
-    }
-    .logo{
-      width:400px;
-      max-width: 100%;
-    }
-    .btn {
-      background-color: $red;
-      color:#FDFFFC;
-      border-color: $red;
-      font-family: "Futura";
-      font-weight: bold;
-      font-style: italic;
-      letter-spacing:-0.05em;
-    }
-}
-
-//Who we are section
-#who-are-we {
-  margin:120px 0px;
-  display:flex;
-  align-items:center;
-  img{
-    max-width:100%;
-  }
-  .btn {
-    background-color: $red;
-    color:#FDFFFC;
-    border-color: $red;
-    font-family: "Futura";
-    font-weight: bold;
-    font-style: italic;
-    letter-spacing:-0.05em;
-  }
-}
-
-.paralax {
-  background: image-url('paralax1.jpg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  background-attachment: fixed;
-  height:40vh;
-}
-
-#how-we-work{
-  img{
-    max-width:100%;
-  }
-  h1{
-    padding: 40px 0px;
-  }
-  h4{
-    margin:15px 0px;
-  }
-  .oi{
-    font-size: 32px;
-    color:$red;
-  }
-  margin: 40px 0px;
-  text-align: center;
-
-}
-
-
-
-//Show page
-#preview-image img, #customise-design img {
-  max-width:100%;
-}
-
-#customise-design{
-  font-size: 14px;
-  table{
-  width:100%;
-  text-align: center;
-  }
-  td,th{
-    border:1px solid grey;
-  }
-  .btn {
-    width:100%;
-    padding: 10px 0px;
-    margin-bottom: 20px;
-  }
-  .btn-danger {
-    background-color: #011627;
-    border-color: #011627;
-  }
-  .btn-primary {
-    background-color: $red;
-    border-color: $red;
-  }
-  h4{
-    font-size: 20px;
-    margin-top: 20px;
-  }
-  h3{
-    font-size: 16px;
-  }
-  .form-group{
-    margin: 20px 0px;
-    label{
-        font-size: 16px;
-        font-weight: 500;
-    }
-  }
-}
-
-//New page
-#mockup-generator{
-  background-color: $red;
-  display: flex;
-  margin:60px 0px;
-  box-shadow: 1px 1px 1px 1px #AAAAAA;
-  text-align: center;
-  .btn {
-    width:100px;
-    height:100px;
-    border-radius: 50%;
-    padding: 10px 0px;
-    margin: 50px 0px;
-
-  }
-  .btn-primary {
-    color: $red;
-    background-color: #FDFFFC;
-    border-color: #FDFFFC;
-    box-shadow: 1px 1px 1px #AAAAAA;
-    font-family: "Futura";
-    font-weight: bold;
-    font-style: italic;
-  }
-  #generator-title{
-    background-color: #FDFFFC;
-  }
-  #generator-title h1{
-    color: $red;
-  }
-  #generator-input{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-  }
-
-
-  h1,h4{
-    font-family: "Futura";
-    font-weight: bold;
-    font-style: italic;
-    letter-spacing:-0.05em;
-  }
-  h4{
-    color:#FDFFFC;
-    margin: 50px 0px;
-
-  }
-  h1{
-    color:white;
-    text-align: center;
-    margin: 50px 0px;
-
-  }
-  img{
-    max-width: 100%;
-  }
-  #text-field{
-    width:100%;
-    margin: 10px 0px;
-    border:none;
-    box-shadow: 1px 1px 1px #AAAAAA;
-    outline-color:#FDFFFC;
-  }
+footer {
+  background-color: black;
+  color:darkgray;
 }

@@ -2,77 +2,84 @@
   <div class="container" id="hero-content">
     <%= image_tag("supermeme.png", :alt => "supermeme logo", :class => "logo" ) %>
     <h1>You name it, we meme it.</h1>
-    <%= link_to "Create your design", new_design_path, :class =>"btn" %>
+    <%= link_to "Create your design", new_design_path, :class =>"btn btn-supreme" %>
   </div>
 </div>
 
 
-  <div class="container">
-    <div class="row" id="who-are-we">
-      <div class="col-md-6">
-        <h1>What is Supermeme?</h1>
-        <p>A meme is an idea, behavior, or style that spreads from person to person within a culture—often with the aim of conveying a particular phenomenon, theme, or meaning represented by the meme.[4] A meme acts as a unit for carrying cultural ideas, symbols, or practices, that can be transmitted from one mind to another through writing, speech, gestures, rituals, or other imitable phenomena with a mimicked theme. laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        <%= link_to "Create your design", new_design_path,:class =>"btn" %>
+<div class="container">
+  <div class="row" id="who-are-we">
+    <div class="col-md-6">
+      <h1>What is Supermeme?</h1>
+      <p>A meme is an idea, behavior, or style that spreads from person to person within a culture—often with the aim
+        of conveying a particular phenomenon, theme, or meaning represented by the meme.[4] A meme acts as a unit for
+        carrying cultural ideas, symbols, or practices, that can be transmitted from one mind to another through
+        writing, speech, gestures, rituals, or other imitable phenomena with a mimicked theme. laboris nisi ut aliquip
+        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+        nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim
+        id est laborum.</p>
+      <%= link_to "Create your design", new_design_path,:class =>"btn btn-supreme" %>
+    </div>
+    <div class="col-md-6">
+      <%= image_tag("supermeme-home.jpg", :alt => "supermeme logo", :class => "logo" ) %>
+    </div>
+  </div>
+</div>
+
+<div class="parallax"></div>
+
+<div class="container">
+  <div class="row" id="how-we-work">
+    <div class="col-md-12">
+      <h1>How it works</h1>
+    </div>
+    <div class="process-card col-sm-3">
+      <div class="process-image">
+        <span class="oi oi-brush" title="icon brush" aria-hidden="true"></span>
       </div>
-      <div class="col-md-6">
-        <%= image_tag("supermeme-home.jpg", :alt => "supermeme logo", :class => "logo" ) %>
+      <div class="process-title">
+        <h4>Design</h4>
+      </div>
+      <div class="process-description">
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.</p>
+      </div>
+    </div>
+    <div class="process-card col-sm-3">
+      <div class="process-image">
+        <span class="oi oi-print" title="icon print" aria-hidden="true"></span>
+      </div>
+      <div class="process-title">
+        <h4>Print</h4>
+      </div>
+      <div class="process-description">
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.</p>
+      </div>
+    </div>
+    <div class="process-card col-sm-3">
+      <div class="process-image">
+        <span class="oi oi-timer" title="icon timer" aria-hidden="true"></span>
+      </div>
+      <div class="process-title">
+        <h4>Delivery</h4>
+      </div>
+      <div class="process-description">
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.</p>
+      </div>
+    </div>
+    <div class="process-card col-sm-3">
+      <div class="process-image">
+        <span class="oi oi-heart" title="icon heart" aria-hidden="true"></span>
+      </div>
+      <div class="process-title">
+        <h4>Enjoy</h4>
+      </div>
+      <div class="process-description">
+        <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
+          laborum.</p>
       </div>
     </div>
   </div>
-
-  <div class="jumbotron jumbotron-fluid paralax"></div>
-
-  <div class="container">
-    <div class="row" id="how-we-work">
-      <div class="col-md-12">
-        <h1>How it works</h1>
-      </div>
-      <div class="process-card col-sm-3">
-        <div class="process-image">
-          <span class="oi oi-brush" title="icon brush" aria-hidden="true"></span>
-        </div>
-        <div class="process-title">
-          <h4>Design</h4>
-        </div>
-        <div class="process-description">
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
-      <div class="process-card col-sm-3">
-        <div class="process-image">
-          <span class="oi oi-print" title="icon print" aria-hidden="true"></span>
-        </div>
-        <div class="process-title">
-          <h4>Print</h4>
-        </div>
-        <div class="process-description">
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
-      <div class="process-card col-sm-3">
-        <div class="process-image">
-          <span class="oi oi-timer" title="icon timer" aria-hidden="true"></span>
-        </div>
-        <div class="process-title">
-          <h4>Delivery</h4>
-        </div>
-        <div class="process-description">
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
-      <div class="process-card col-sm-3">
-        <div class="process-image">
-          <span class="oi oi-heart" title="icon heart" aria-hidden="true"></span>
-        </div>
-        <div class="process-title">
-          <h4>Enjoy</h4>
-        </div>
-        <div class="process-description">
-          <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-        </div>
-      </div>
-
-
-      </div>
-    </div>
-  </div>
+</div>

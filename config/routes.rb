@@ -12,7 +12,7 @@ Rails.application.routes.draw do
 
   get 'checkout', to: 'orders#new', as: :checkout
   get 'checkout/pay', to: 'orders#pay', as: :checkout_pay
-  resources :orders, only: [:create, :show]
+  resources :orders, only: [:create]
 
   post 'charges', to: 'orders#charge'
   get 'countries/states', to: 'countries#states', as: :country_states
