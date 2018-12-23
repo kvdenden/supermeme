@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resource :design, only: [:new, :show]
+  resource :design, only: [:new, :create, :show]
 
   get 'images/mockups/*text.:format', to: 'images#mockup', as: :mockup_image, defaults: { design: 'supreme', format: 'jpg' }
   get 'images/printfiles/:variant_id/:design/*text.:format', to: 'images#product_variant', as: :product_variant_image, defaults: { design: 'supreme', format: 'png' }

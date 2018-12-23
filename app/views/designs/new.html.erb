@@ -8,8 +8,8 @@
       </div>
       <div class="col-sm-6" id="generator-input">
         <h4>Write something awesome!</h4>
-        <%= form_tag({ controller: "designs", action: "show" }, method: "get") do %>
-          <%= text_field_tag(:text,"", :id => "text-field",:class => "form-control form-control-lg") %>
+        <%= form_tag design_path do %>
+          <%= text_field_tag(:text, "", :placeholder => "Your text here", :id => "text-field", :class => "form-control form-control-lg") %>
           <%= submit_tag("Meme it", :class => "btn btn-primary") %>
         <% end %>
       </div>
