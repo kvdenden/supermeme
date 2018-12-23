@@ -1,0 +1,62 @@
+//Hero
+#hero {
+  background: image-url('hero.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  text-align: center;
+  display: flex;
+  align-items: center;
+
+  h1 {
+    color: white;
+    padding: 30px 0px;
+  }
+
+  .logo {
+    width: 400px;
+  }
+}
+
+//Who we are section
+#who-are-we {
+  margin: 120px 0px;
+  display: flex;
+  align-items: center;
+}
+
+.parallax {
+  background: image-url('parallax1.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 400px;
+
+  @media only screen and (min-width: 1200px) {
+    height: 200px;
+    background-attachment: fixed;
+  }
+}
+
+#how-we-work {
+  margin: 40px 0px;
+  text-align: center;
+
+  img {
+    max-width:100%;
+  }
+
+  h1 {
+    padding: 40px 0px;
+  }
+
+  h4 {
+    margin:15px 0px;
+  }
+
+  .oi {
+    font-size: 32px;
+    color:$red;
+  }
+}
