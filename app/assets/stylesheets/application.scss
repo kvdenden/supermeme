@@ -15,20 +15,22 @@
 @import "select2";
 @import "select2-bootstrap";
 
+$supreme-red: #D82122;
+
 @import "home";
 @import "designs";
 
 $red: #D82122;
 
 nav {
-  background-color: $red;
+  background-color: $supreme-red;
 }
 
 .btn-supreme {
   &:link, &:visited, &:hover, &:active {
     color:#FDFFFC;
-    background-color: $red;
-    border-color: $red;
+    background-color: $supreme-red;
+    border-color: $supreme-red;
   }
 }
 
@@ -36,7 +38,7 @@ form {
   label.required {
     abbr {
       text-decoration: none;
-      color: $red;
+      color: $supreme-red;
     }
   }
 }
