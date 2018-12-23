@@ -50,6 +50,7 @@ gem 'geocoder'
 gem 'simple_form'
 gem 'bootstrap-email'
 gem 'rest-client'
+gem 'font-awesome-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

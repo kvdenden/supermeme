@@ -14,6 +14,7 @@
 @import "bootstrap";
 @import "select2";
 @import "select2-bootstrap";
+@import "font-awesome";
 
 $supreme-red: #D82122;
 
@@ -27,6 +28,25 @@ body {
 
 nav {
   background-color: $supreme-red;
+}
+
+footer {
+  text-align: center;
+
+  a {
+    color: lightgray;
+    &:hover {
+      color: white;
+    }
+  }
+
+  @media screen and (min-width: 576px) {
+    text-align: left;
+
+    .social-media {
+      text-align: right;
+    }
+  }
 }
 
 .btn-supreme {

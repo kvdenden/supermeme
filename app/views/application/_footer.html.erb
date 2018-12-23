@@ -1,6 +1,17 @@
 <footer class="page-footer font-small blue pt-4">
-  <div class="container text-center">
-  <p><%= link_to image_tag("supermeme.png", :alt => "Supermeme logo", :width => 200), root_path %></p>
-  <p class="small"><%= copyright_message.html_safe %></p>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-8">
+        <p><%= link_to image_tag("supermeme.png", :alt => "Supermeme logo", :width => 200), root_path %></p>
+      </div>
+      <div class="col-sm-4">
+        <div class="social-media">
+          <%= link_to fa_icon("facebook-square", text: "Facebook"), "https://www.facebook.com/Supermeme-347154725864134/", target: "_blank" %>
+          <br />
+          <%= link_to fa_icon("instagram", text: "Instagram"), "https://www.instagram.com/supermeme.co/", target: "_blank" %>
+        </div>
+      </div>
+    </div>
+    <p class="small"><%= copyright_message.html_safe %></p>
   </div>
 </footer>
