@@ -1,6 +1,10 @@
 <div class="container">
+  <h1 class="page-title">Your shopping cart</h1>
   <% if cart.empty? %>
-    Your Shopping Cart is empty.
+    <div class="alert alert-warning" role="alert">
+      Your Shopping Cart is empty.
+    </div>
+    <%= link_to "Create a design", new_design_path, class: "btn btn-supreme"%>
   <% else %>
     <div id="cart-form">
       <%= render "cart/form", cart: cart %>

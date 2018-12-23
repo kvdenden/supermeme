@@ -30,7 +30,18 @@ nav {
   background-color: $supreme-red;
 }
 
+h1.page-title {
+  margin: 0.5em 0;
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid grey;
+  text-align: center;
+  @media screen and (min-width: 576px) {
+    text-align: left;
+  }
+}
+
 footer {
+  margin-top: 2em;
   text-align: center;
 
   a {
