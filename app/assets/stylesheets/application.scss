@@ -20,7 +20,10 @@ $supreme-red: #D82122;
 @import "home";
 @import "designs";
 
-$red: #D82122;
+
+body {
+  min-height: 100vh;
+}
 
 nav {
   background-color: $supreme-red;
