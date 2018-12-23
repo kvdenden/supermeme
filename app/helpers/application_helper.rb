@@ -1,4 +1,10 @@
 module ApplicationHelper
+  def nav_link_to(body, url)
+    nav_class = "nav-link"
+    nav_class += " active" if request.path == url
+    link_to body, url, class: nav_class
+  end
+
   def copyright_message
     from_year = 2018
     current_year = Date.current.year
