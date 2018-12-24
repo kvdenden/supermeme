@@ -2,32 +2,7 @@
   <h1 class="page-title"><%= @text %></h1>
   <div class="row">
     <div class="col-md-6" id="preview-image">
-      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-        <ol class="carousel-indicators">
-          <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-          <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-        </ol>
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <%= image_tag @mockup_path, alt: "Black T-Shirt with \"#{@text}\"" %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag("dummy-print-preview.png", :alt => "Second preview slide") %>
-          </div>
-          <div class="carousel-item">
-            <%= image_tag("dummy-print-preview.png", :alt => "Second preview slide") %>
-          </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="sr-only">Next</span>
-        </a>
-      </div>
+      <%= image_tag @mockup_path, alt: "Black T-Shirt with \"#{@text}\"" %>
     </div>
     <div class="col-md-6" id="customise-design">
       <%= image_tag @image_path, alt: @text %>
