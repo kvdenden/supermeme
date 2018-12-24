@@ -31,8 +31,8 @@ function countryStateSelect(countrySelector, stateSelector, stateWrapperSelector
     loadStates(countryCode);
   });
 
-  var initialState = $(stateSelector).val();
-  if (initialState == "") {
+  var initialStates = $(stateSelector).children();
+  if (initialStates.length <= 1) {
     $(stateWrapperSelector).hide();
   }
 }
