@@ -6,9 +6,8 @@ module Printful
       @order = order
     end
 
-    def purchase_order_payload
+    def purchase_order_payload(include_id: true)
       {
-        external_id: Rails.env.development? ? "#{order.id}_dev" : order.id,
         recipient: {
           name: order.name,
           email: order.email,
@@ -19,18 +18,17 @@ module Printful
           state_code: order.address.state_code,
           country_code: order.address.country_code,
         },
-        items: order.line_items.map { |item| line_item_payload(item) },
+        items: order.line_items.map { |item| line_item_payload(item, include_id: include_id) },
         retail_costs: {
           subtotal: order.subtotal,
           shipping: order.shipping_fee,
           total: order.total
         }
-      }
+      }.tap { |h| h.merge!(external_id: external_id(order)) if include_id }
     end
 
-    def line_item_payload(item)
+    def line_item_payload(item, include_id: true)
       {
-        external_id: Rails.env.development? ? "#{item.id}_dev" : item.id,
         variant_id: item.variant.external_id,
         quantity: item.quantity,
         retail_price: item.unit_price,
@@ -38,7 +36,11 @@ module Printful
         files: [{
           url: Rails.application.routes.url_helpers.product_variant_image_url(variant_id: item.variant_id, text: item.text)
         }]
-      }
+      }.tap { |h| h.merge!(external_id: external_id(item)) if include_id }
+    end
+
+    def external_id(model)
+      Rails.env.development? ? "#{model.id}_dev" : model.id
     end
   end
 end

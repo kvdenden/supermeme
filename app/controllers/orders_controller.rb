@@ -6,8 +6,8 @@ class OrdersController < ApplicationController
 
     @address = @order.address || Address.new
 
-    if flash[:error]
-      @order.errors.add(:base, flash[:error])
+    flash[:printful_errors]&.each do |err|
+      @order.errors.add(:base, err)
     end
 
     if flash[:validate]
@@ -17,18 +17,21 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = cart
+    order = cart
 
-    if @order.update(order_params)
-      begin
-        Printful::CreateOrder.new(@order).call
-        redirect_to action: :pay
+    if order.update(order_params)
+        ok_for_printful = Printful::ValidateOrder.new(order).call
+        if ok_for_printful
+          redirect_to action: :pay
+        else
+          flash[:printful_errors] = order.errors[:base]
+          redirect_to action: :new
+        end
       rescue PrintfulApiException => e
         flash[:error] = e.message
-        redirect_to action: :new
       end
     else
-      @order.save(validate: false)
+      order.save(validate: false)
       flash[:validate] = true
       redirect_to action: :new
     end
