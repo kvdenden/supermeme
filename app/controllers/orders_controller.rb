@@ -47,8 +47,8 @@ class OrdersController < ApplicationController
     @order.update(status: 'paid')
 
     # send order to printful
-    # TODO: move this to a background job
-    Printful::CreateOrder.new(@order).call
+    confirm_order = Rails.application.config.printful[:confirm_order]
+    Printful::CreateOrder.new(@order).call(confirm: confirm_order)
 
     # clear cart
     session[:cart_id] = nil
