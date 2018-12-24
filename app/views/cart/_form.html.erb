@@ -1,28 +1,35 @@
 <div class="table-responsive">
-  <table class="cart table">
+  <table class="cart table table-sm">
     <thead>
       <tr>
-        <th colspan="2">Item</th>
+        <th>Item</th>
         <th>Quantity</th>
-        <th>Price</th>
+        <th>
+          <div class="text-right">Price</div>
+        </th>
       </tr>
     </thead>
     <tbody>
       <% cart.line_items.each do |item| %>
         <tr>
           <td>
-            <div class="text-center">
-              <%= link_to image_tag(mockup_image_path(item.text, width: 128), alt: "#{item.variant.color} T-Shirt with \"#{item.text}\""), design_path(text: item.text) %>
-              <br />
-              <%= link_to image_tag(generated_image_path(item.text, size: 16), alt: item.text), design_path(text: item.text) %>
+            <div class="row">
+              <div class="col-sm-4 image">
+                <div class="text-center">
+                  <%= link_to image_tag(mockup_image_path(item.text, width: 128), alt: "#{item.variant.color} T-Shirt with \"#{item.text}\""), design_path(text: item.text) %>
+                  <br />
+                  <%= link_to image_tag(generated_image_path(item.text, size: 16), alt: item.text), design_path(text: item.text) %>
+                </div>
+              </div>
+              <div class="col-sm-8 d-sm-flex align-items-center description">
+                <div>
+                  <p><%= item.title %></p>
+                  <div class="small text-muted">
+                    <%= link_to "Remove", remove_from_cart_path(line_item_id: item.id), remote: true, method: :post, data: { confirm: "Remove from cart?" } %>
+                  </div>
+                </div>
+              </div>
             </div>
-          </td>
-          <td>
-            <%= item.variant.color %>
-            <%= item.variant.size %>
-            <%= item.variant.product.title %>
-            <br />
-            <%= link_to "Remove", remove_from_cart_path(line_item_id: item.id), remote: true, method: :post %>
           </td>
           <td>
             <%= form_tag(update_cart_path, remote: true, authenticity_token: true) do %>
@@ -38,7 +45,6 @@
         </tr>
       <% end %>
       <tr>
-        <td> </td>
         <td colspan="2">
           Subtotal
         </td>
@@ -49,7 +55,6 @@
         </td>
       </tr>
       <tr>
-        <td> </td>
         <td colspan="2">
           Shipping fee
         </td>
@@ -60,7 +65,6 @@
         </td>
       </tr>
       <tr>
-        <td> </td>
         <td colspan="2">
           <strong>Total</strong>
         </td>
