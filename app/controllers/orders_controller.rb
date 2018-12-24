@@ -20,15 +20,12 @@ class OrdersController < ApplicationController
     order = cart
 
     if order.update(order_params)
-        ok_for_printful = Printful::ValidateOrder.new(order).call
-        if ok_for_printful
-          redirect_to action: :pay
-        else
-          flash[:printful_errors] = order.errors[:base]
-          redirect_to action: :new
-        end
-      rescue PrintfulApiException => e
-        flash[:error] = e.message
+      ok_for_printful = Printful::ValidateOrder.new(order).call
+      if ok_for_printful
+        redirect_to action: :pay
+      else
+        flash[:printful_errors] = order.errors[:base]
+        redirect_to action: :new
       end
     else
       order.save(validate: false)
