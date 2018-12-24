@@ -1,0 +1,21 @@
+<% order.line_items.each do |item| %>
+  <div class="row">
+    <div class="col-4">
+      <div class="text-center">
+        <br />
+        <%= image_tag(generated_image_url(item.text, size: 16), alt: item.text) %>
+      </div>
+    </div>
+    <div class="col-8">
+      <div class="text-right">
+        <strong><%= number_to_currency(item.price) %></strong>
+      </div>
+      <p class="text-right small">
+        <%= item.variant.product.title %>
+        <strong><%= item.variant.color %> <%= item.variant.size %></strong>
+        <br />
+        x <%= item.quantity %>
+      </p>
+    </div>
+  </div>
+<% end %>

@@ -30,4 +30,9 @@ function countryStateSelect(countrySelector, stateSelector, stateWrapperSelector
     var countryCode = $(this).val();
     loadStates(countryCode);
   });
+
+  var initialState = $(stateSelector).val();
+  if (initialState == "") {
+    $(stateWrapperSelector).hide();
+  }
 }
