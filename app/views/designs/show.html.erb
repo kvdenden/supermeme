@@ -13,34 +13,7 @@
       <%= html_description(@product) %>
 
       <h3>Size guide</h3>
-      <table>
-        <tbody>
-          <tr>
-            <td></td>
-            <td><strong>XS</strong></td>
-            <td><strong>S</strong></td>
-            <td><strong>M</strong></td>
-            <td><strong>L</strong></td>
-            <td><strong>XL</strong></td>
-          </tr>
-          <tr>
-            <th>Chest (inches)</th>
-            <td>30-32</td>
-            <td>34-36</td>
-            <td>38-40</td>
-            <td>42-44</td>
-            <td>46-48</td>
-          </tr>
-          <tr>
-            <th>Waist (inches)</th>
-            <td>28-30</td>
-            <td>30-32</td>
-            <td>32-33</td>
-            <td>33-34</td>
-            <td>36-38</td>
-          </tr>
-        </tbody>
-      </table>
+      <%= image_tag asset_path("sizechart.jpg"), alt: "Size guide" %>
     </div>
   </div>
 
