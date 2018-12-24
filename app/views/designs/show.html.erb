@@ -6,6 +6,9 @@
     </div>
     <div class="col-md-6" id="customise-design">
       <%= image_tag @image_path, alt: @text %>
+
+      <%= render "designs/form", text: @text, available_sizes: @available_sizes, available_colors: @available_colors %>
+
       <h4>Product description</h4>
       <%= html_description(@product) %>
 
@@ -38,24 +41,6 @@
           </tr>
         </tbody>
       </table>
-      <%= form_tag(add_to_cart_path) do %>
-        <%= hidden_field_tag(:text, @text) %>
-        <div class="form-row">
-          <div class="col">
-            <div class="form-group">
-              <%= label_tag(:size, "Size") %>
-              <%= select_tag(:size, options_for_select(@available_sizes, "M"), { class: "form-control" }) %>
-            </div>
-          </div>
-          <div class="col">
-            <div class="form-group">
-              <%= label_tag(:color, "Color") %>
-              <%= select_tag(:color, options_for_select(@available_colors), { class: "form-control" }) %>
-            </div>
-          </div>
-        </div>
-        <%= submit_tag("Buy now", class: "btn btn-primary") %>
-      <% end %>
     </div>
   </div>
 
