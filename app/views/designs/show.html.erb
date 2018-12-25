@@ -5,11 +5,18 @@
       <%= image_tag @mockup_path, alt: "Black T-Shirt with \"#{@text}\"" %>
     </div>
     <div class="col-md-6" id="customise-design">
-      <%= image_tag @image_path, alt: @text %>
+      <p><%= image_tag @image_path, alt: @text %></p>
 
-      <%= render "designs/form", text: @text, available_sizes: @available_sizes, available_colors: @available_colors %>
+      <div class="description">
+        <h2><%= "#{@design.capitalize} style #{@product.title}" %></h2>
+        <div class="price">
+          <%= number_to_currency(@variant.price) %>
+        </div>
+      </div>
+      <div id="variant-form">
+        <%= render "designs/form", text: @text, product: @product, variant: @variant %>
+      </div>
 
-      <h4>Product description</h4>
       <%= html_description(@product) %>
 
       <h3>Size guide</h3>

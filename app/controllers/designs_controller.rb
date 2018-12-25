@@ -9,14 +9,18 @@ class DesignsController < ApplicationController
   def show
     @text = text
 
-    @image_path = generated_image_path(CGI::escape(@text), size: 144)
+    selected_color = params.fetch("color", "Black")
+    selected_size = params.fetch("size", "M")
+
+    @design = "supreme"
+
+    @image_path = generated_image_path(CGI::escape(@text), design: @design, size: 144)
     @mockup_path = mockup_image_path(CGI::escape(@text))
 
     @product = Product.first
-    @variants = @product.variants
+    variants = @product.variants
 
-    @available_colors = @variants.pluck(:color).uniq
-    @available_sizes = @variants.pluck(:size).uniq
+    @variant = variants.where(color: selected_color, size: selected_size).first || variants.first
   end
 
   private
