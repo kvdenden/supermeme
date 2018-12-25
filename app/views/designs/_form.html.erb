@@ -4,13 +4,13 @@
     <div class="col">
       <div class="form-group">
         <%= label_tag(:size, "Size") %>
-        <%= select_tag(:size, options_for_select(available_sizes, "M"), { class: "form-control" }) %>
+        <%= select_tag(:size, size_options_for_select(product, variant), { class: "form-control" }) %>
       </div>
     </div>
     <div class="col">
       <div class="form-group">
         <%= label_tag(:color, "Color") %>
-        <%= select_tag(:color, options_for_select(available_colors), { class: "form-control" }) %>
+        <%= select_tag(:color, color_options_for_select(product, variant), { class: "form-control" }) %>
       </div>
     </div>
   </div>

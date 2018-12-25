@@ -1,4 +1,16 @@
 //Show page
+.description {
+  text-align: center;
+
+  @media screen and (min-width: 576px) {
+    text-align: left;
+  }
+
+  .price {
+    font-size: 2em;
+  }
+}
+
 #preview-image img, #customise-design img {
   max-width:100%;
 }
