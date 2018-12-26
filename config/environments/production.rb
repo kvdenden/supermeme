@@ -68,7 +68,7 @@ Rails.application.configure do
   if ENV["SEND_EMAILS"] == "true"
     config.action_mailer.smtp_settings = {
       :user_name => 'apikey',
-      :password => Rails.application.credentials.sendgrid_api_key,
+      :password => ENV.fetch("SENDGRID_API_KEY"),
       :domain => Rails.application.routes.default_url_options[:host],
       :address => 'smtp.sendgrid.net',
       :port => 587,
