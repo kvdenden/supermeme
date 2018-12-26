@@ -1,4 +1,4 @@
-PrintfulAPI.api_key = Rails.application.credentials.printful_api_key
+PrintfulAPI.api_key = ENV.fetch("PRINTFUL_API_KEY")
 
 Rails.application.configure do
   config.printful = {
