@@ -15,4 +15,10 @@ class ApplicationController < ActionController::Base
       PurchaseOrder.new
     end
   end
+
+  private
+
+  def noindex
+    set_meta_tags noindex: true
+  end
 end
