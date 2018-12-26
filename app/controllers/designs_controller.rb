@@ -18,9 +18,12 @@ class DesignsController < ApplicationController
     @mockup_path = mockup_image_path(CGI::escape(@text))
 
     @product = Product.first
+    @product_title = "#{@design.capitalize} style #{@product.title}"
+
     variants = @product.variants
 
     @variant = variants.where(color: selected_color, size: selected_size).first || variants.first
+
   end
 
   private
