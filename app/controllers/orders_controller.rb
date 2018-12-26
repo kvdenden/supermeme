@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_filter :noindex
+  before_action :noindex
 
   def new
     redirect_to root_url if cart.empty?
