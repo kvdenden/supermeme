@@ -11,6 +11,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
 
     <%= favicon_link_tag asset_path('favicon.png') %>
+
+    <% if Rails.application.config.google_analytics[:tracking_id] %>
+      <%= render "analytics", tracking_id: Rails.application.config.google_analytics[:tracking_id] %>
+    <% end %>
   </head>
 
   <body class="d-flex flex-column">
