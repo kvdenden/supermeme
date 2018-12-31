@@ -6,6 +6,9 @@ module Generators
     def self.call(text, size: BASE_SIZE)
       Rails.cache.fetch("generators/supreme/#{text}/#{size}") do
 
+        # escape special characters
+        escaped_text = text.dump[1...-1].gsub('%', '%%')
+
         # create and set up draw object
         draw = Magick::Draw.new do
           self.gravity = Magick::CenterGravity
@@ -17,7 +20,7 @@ module Generators
         draw.kerning = -36
 
         # calculate image dimensions
-        type_metrics = draw.get_type_metrics(text)
+        type_metrics = draw.get_type_metrics(escaped_text)
 
         image_width = type_metrics.width + 100
         image_height = type_metrics.height + 100
@@ -29,7 +32,7 @@ module Generators
         end
 
         # draw text on image
-        draw.annotate(image, 0, 0, 0, 0, text)
+        draw.annotate(image, 0, 0, 0, 0, escaped_text)
 
         # make image same size as text by removing whitespace
         image.trim!
