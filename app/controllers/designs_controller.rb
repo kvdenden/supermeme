@@ -9,6 +9,8 @@ class DesignsController < ApplicationController
   def show
     @text = text
 
+    redirect_to design_path(text: "Supermeme") and return if @text.blank?
+
     selected_color = params.fetch("color", "Black")
     selected_size = params.fetch("size", "M")
 
@@ -29,12 +31,6 @@ class DesignsController < ApplicationController
   private
 
   def text
-    input_text = params["text"]&.strip
-
-    if input_text.present?
-      input_text
-    else
-      "Supermeme"
-    end
+    params["text"]&.strip
   end
 end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  match '(*any)', to: redirect(subdomain: ''), via: :all, constraints: { subdomain: 'www' }
+
   resource :design, only: [:new, :create, :show]
 
   get 'images/mockups/*text.:format', to: 'images#mockup', as: :mockup_image, defaults: { design: 'supreme', format: 'jpg' }
