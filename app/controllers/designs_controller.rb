@@ -9,7 +9,7 @@ class DesignsController < ApplicationController
   def show
     @text = text
 
-    redirect_to design_path(text: "Supermeme") and return if text.blank?
+    redirect_to design_path(text: "Supermeme") and return if @text.blank?
 
     selected_color = params.fetch("color", "Black")
     selected_size = params.fetch("size", "M")
