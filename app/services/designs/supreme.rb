@@ -15,7 +15,7 @@ module Designs
       design = generator.call(text, size: font_size)
 
       # scale down design if it is too big
-      max_width = canvas_width * 0.8
+      max_width = canvas_width * 0.9
       if design.columns > max_width
         design.resize!(max_width / design.columns)
       end
