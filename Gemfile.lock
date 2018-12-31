@@ -199,6 +199,8 @@ GEM
       mime-types (>= 1.16, < 4.0)
       netrc (~> 0.8)
     rmagick (2.16.0)
+    rollbar (2.18.2)
+      multi_json
     rspec-core (3.8.0)
       rspec-support (~> 3.8.0)
     rspec-expectations (3.8.2)
@@ -300,6 +302,7 @@ DEPENDENCIES
   redcarpet
   rest-client
   rmagick
+  rollbar
   rspec-rails
   sass-rails (~> 5.0)
   select2-rails
