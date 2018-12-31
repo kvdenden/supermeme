@@ -38,12 +38,19 @@ module Generators
         image.trim!
 
         # calculate padding
-        min_width = 2000
         min_height = 800
-        min_horizontal_padding = 250
-        min_vertical_padding = 75
-        vertical_padding = [(min_height - image.rows) / 2, min_vertical_padding, image.rows / 50].max
-        horizontal_padding = [(min_width - image.columns) / 2, min_horizontal_padding, vertical_padding].max
+        vertical_padding = [
+          75, # default padding
+          (min_height - image.rows) / 2, # for short text
+          image.columns / 50 # for long text
+        ].max
+
+        min_width = 2000
+        horizontal_padding = [
+          250, # default padding
+          (min_width - image.columns) / 2, # for short text
+          vertical_padding # for long text
+        ].max
 
         # add padding
         image.border!(horizontal_padding, vertical_padding, RED)
