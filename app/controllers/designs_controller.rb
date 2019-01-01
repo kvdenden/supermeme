@@ -26,6 +26,10 @@ class DesignsController < ApplicationController
     @image_path = generated_image_path(CGI::escape(@text), design: @design, size: 144)
     @mockup_path = mockup_image_path(CGI::escape(@text), variant_id: @variant.id)
 
+    respond_to do |format|
+      format.js
+      format.html
+    end
   end
 
   private

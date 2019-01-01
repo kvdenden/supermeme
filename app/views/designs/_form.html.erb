@@ -16,3 +16,13 @@
   </div>
   <%= submit_tag("Buy now", class: "btn btn-primary") %>
 <% end %>
+<script type='text/javascript'>
+  $("select[name='color']").change(function () {
+    var color = $(this).val();
+    $.ajax({
+      url: '<%= design_path(text: text) %>',
+      type: 'get',
+      data: { color: color },
+    });
+  });
+</script>
