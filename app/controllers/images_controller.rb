@@ -37,8 +37,9 @@ class ImagesController < ApplicationController
 
     width = params.fetch("width", 1200)
 
-    variant = Variant.first # TODO: make this better :)
-    mockup_generator = Mockups::TShirt
+    variant_id = params.fetch("variant_id")
+    variant = Variant.find(variant_id)
+    mockup_generator = Mockups::TShirt.new(color: variant.color)
 
     text = params.fetch("text", "Supermeme")
     design = designer.call(CGI::unescape(text), variant)
