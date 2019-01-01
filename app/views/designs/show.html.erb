@@ -19,6 +19,11 @@
         <%= render "designs/form", text: @text, product: @product, variant: @variant %>
       </div>
 
+      <div class="text-center text-muted">
+        <p>Secure checkout with</p>
+        <%= render "trust_signals" %>
+      </div>
+
       <%= html_description(@product) %>
 
       <h3>Size guide</h3>

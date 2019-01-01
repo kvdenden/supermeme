@@ -110,6 +110,19 @@ table.cart {
   }
 }
 
+.icons {
+  i.fa {
+    font-size: 2em;
+    margin: 0 5px;
+    &:first-child {
+      margin-left: 0;
+    }
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}
+
 footer {
   background-color: black;
   color:darkgray;
