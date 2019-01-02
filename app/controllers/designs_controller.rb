@@ -24,7 +24,7 @@ class DesignsController < ApplicationController
     @variant_title = "#{selected_color} #{@product_title} with \"#{@text}\""
 
     @image_path = generated_image_path(CGI::escape(@text), design: @design, size: 144)
-    @mockup_path = mockup_image_path(CGI::escape(@text), variant_id: @variant.id)
+    @mockup_path = mockup_image_path(CGI::escape(@text), color: selected_color.parameterize)
 
     respond_to do |format|
       format.js

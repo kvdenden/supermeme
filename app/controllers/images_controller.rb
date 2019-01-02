@@ -36,9 +36,10 @@ class ImagesController < ApplicationController
     return head 404 unless designer
 
     width = params.fetch("width", 1200)
+    color = params.fetch("color", 'black').capitalize
 
-    variant_id = params.fetch("variant_id")
-    variant = Variant.find(variant_id)
+    product = Product.first
+    variant = product.variants.where(color: color).first || product.variants.first
     mockup_generator = Mockups::TShirt.new(color: variant.color)
 
     text = params.fetch("text", "Supermeme")
