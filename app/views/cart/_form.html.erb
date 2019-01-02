@@ -16,7 +16,7 @@
             <div class="row">
               <div class="col-sm-4 image">
                 <div class="text-center">
-                  <%= link_to image_tag(mockup_image_path(item.text, width: 128), alt: "#{item.variant.color} T-Shirt with \"#{item.text}\""), design_path(text: item.text) %>
+                  <%= link_to image_tag(mockup_image_path(item.text, color: item.variant.color.parameterize, width: 128), alt: "#{item.variant.color} T-Shirt with \"#{item.text}\""), design_path(text: item.text) %>
                   <br />
                   <%= link_to image_tag(generated_image_path(item.text, size: 16), alt: item.text), design_path(text: item.text) %>
                 </div>
