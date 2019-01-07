@@ -23,12 +23,12 @@ class DesignsController < ApplicationController
     @variant = variants.where(color: selected_color, size: selected_size).first || variants.first
     @variant_title = "#{selected_color} #{@product_title} with \"#{@text}\""
 
-    @image_path = generated_image_path(CGI::escape(@text), design: @design, size: 144)
-    @mockup_path = mockup_image_path(CGI::escape(@text), color: selected_color.parameterize)
+    @image_url = generated_image_url(CGI::escape(@text), design: @design, size: 144)
+    @mockup_url = mockup_image_url(CGI::escape(@text), color: selected_color.parameterize)
 
     respond_to do |format|
-      format.js
       format.html
+      format.js
     end
   end
 
