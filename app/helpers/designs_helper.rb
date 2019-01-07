@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module DesignsHelper
   def color_options_for_select(product, variant)
     available_colors = product.variants.pluck(:color).uniq

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Printful
   class Base
     attr_reader :order

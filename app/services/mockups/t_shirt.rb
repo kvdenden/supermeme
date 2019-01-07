@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Mockups
   class TShirt
     COLOR_CONFIG = {

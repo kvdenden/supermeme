@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class DesignsController < ApplicationController
   def new
   end

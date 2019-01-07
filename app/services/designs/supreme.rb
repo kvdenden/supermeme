@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Designs
   class Supreme
     def self.call(text, variant)

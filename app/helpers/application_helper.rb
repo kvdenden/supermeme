@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def canonical_url
     config = Rails.application.config.canonical

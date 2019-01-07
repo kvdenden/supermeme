@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CountriesController < ApplicationController
   def states
     country_code = params[:country_code]
