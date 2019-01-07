@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Printful
   class UpdateOrder < Base
     def call(confirm: false)

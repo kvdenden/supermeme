@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ProductsHelper
   def html_description(product)
     markdown = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new)

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CartController < ApplicationController
   def add
     product = Product.first

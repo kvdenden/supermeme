@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module CountriesHelper
   def country_options_for_select(selected: nil)
     options_for_select(Countries.list.invert, selected&.upcase)
