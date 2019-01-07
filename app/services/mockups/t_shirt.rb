@@ -38,9 +38,10 @@ module Mockups
 
       resized_design.rotate!(@rotation) unless @rotation.zero?
 
-      mockup = product.composite!(resized_design, Magick::CenterGravity, @offset_x, @offset_y, Magick::OverCompositeOp)
+      product.composite!(resized_design, Magick::CenterGravity, @offset_x, @offset_y, Magick::OverCompositeOp)
 
-      mockup.resize_to_fit(max_width, max_height).sharpen(0)
+      product.resize_to_fit!(max_width, max_height) unless max_width == 1200 && max_height == 1200
+      product.sharpen(0)
     end
   end
 end
