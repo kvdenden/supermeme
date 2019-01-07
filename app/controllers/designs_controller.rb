@@ -27,8 +27,8 @@ class DesignsController < ApplicationController
     @mockup_url = mockup_image_url(CGI::escape(@text), color: selected_color.parameterize)
 
     respond_to do |format|
-      format.js
       format.html
+      format.js
     end
   end
 

@@ -41,8 +41,8 @@ class CartController < ApplicationController
     line_item.destroy if line_item
 
     respond_to do |format|
-      format.js { render :update }
       format.html { redirect_to action: :show }
+      format.js { render :update }
     end
   end
 
@@ -53,8 +53,8 @@ class CartController < ApplicationController
     line_item.update(quantity: quantity) if line_item && quantity.positive?
 
     respond_to do |format|
-      format.js { render :update }
       format.html { redirect_to action: :show }
+      format.js { render :update }
     end
   end
 
