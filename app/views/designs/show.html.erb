@@ -1,14 +1,20 @@
 <% title "\"#{@text}\" #{@product_title}" %>
 <% description "Custom \"#{@text}\" #{@product_title} in the iconic Supreme box logo style." %>
+<% set_meta_tags og: {
+  image: {
+    _: @mockup_url,
+    alt: @variant_title
+  }
+} %>
 
 <div class="container">
   <h1 class="page-title"><%= @text %></h1>
   <div class="row">
     <div class="col-md-6" id="preview-image">
-      <%= image_tag @mockup_path, alt: @variant_title %>
+      <%= image_tag @mockup_url, alt: @variant_title %>
     </div>
     <div class="col-md-6" id="customise-design">
-      <p><%= image_tag @image_path, alt: @text %></p>
+      <p><%= image_tag @image_url, alt: @text %></p>
 
       <div class="description">
         <h2><%= @product_title %></h2>
