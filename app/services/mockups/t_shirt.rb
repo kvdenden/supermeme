@@ -39,10 +39,12 @@ module Mockups
       resized_design.rotate!(@rotation) unless @rotation.zero?
 
       product.composite!(resized_design, Magick::CenterGravity, @offset_x, @offset_y, Magick::OverCompositeOp)
-      resized_design.destroy!
 
       product.resize_to_fit!(max_width, max_height) unless max_width == 1200 && max_height == 1200
       product.sharpen(0)
+    ensure
+      resized_design && resized_design.destroy!
+      product && product.destroy!
     end
   end
 end
