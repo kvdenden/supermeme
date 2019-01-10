@@ -25,6 +25,8 @@ module Designs
       # place design on canvas
       offset_y = canvas_height * -0.25
       canvas.composite!(design, Magick::CenterGravity, 0, offset_y, Magick::OverCompositeOp)
+    ensure
+      design && design.destroy!
     end
 
     def self.generator

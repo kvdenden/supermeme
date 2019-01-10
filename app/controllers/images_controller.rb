@@ -18,6 +18,8 @@ class ImagesController < ApplicationController
     image = generator.call(CGI::unescape(text), size: size.to_i)
 
     send_data image.to_blob, type: image.mime_type, disposition: 'inline'
+  ensure
+    image && image.destroy!
   end
 
   def product_variant
@@ -31,6 +33,8 @@ class ImagesController < ApplicationController
     design = designer.call(CGI::unescape(text), variant)
 
     send_data design.to_blob, type: design.mime_type, disposition: 'inline'
+  ensure
+    design && design.destroy!
   end
 
   def mockup
@@ -49,6 +53,9 @@ class ImagesController < ApplicationController
     mockup = mockup_generator.call(design, max_width: width)
 
     send_data mockup.to_blob, type: mockup.mime_type, disposition: 'inline'
+  ensure
+    design && design.destroy!
+    mockup && mockup.destroy!
   end
 
   private
