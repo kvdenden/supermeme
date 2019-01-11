@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class ImagesController < ApplicationController
-  before_action :cache_response
+  before_action :cache_response, :validate_text
   after_action :force_gc
 
   DESIGNS = {
@@ -63,6 +63,10 @@ class ImagesController < ApplicationController
 
   def cache_response
     fresh_when(last_modified: LAST_DEPLOY, public: true)
+  end
+
+  def validate_text
+    render head 404 if params.fetch("text", "Supermeme").length > 32
   end
 
   def force_gc
