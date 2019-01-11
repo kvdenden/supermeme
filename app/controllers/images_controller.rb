@@ -2,6 +2,7 @@
 
 class ImagesController < ApplicationController
   before_action :cache_response
+  after_action :force_gc
 
   DESIGNS = {
     supreme: Designs::Supreme
@@ -62,5 +63,12 @@ class ImagesController < ApplicationController
 
   def cache_response
     fresh_when(last_modified: LAST_DEPLOY, public: true)
+  end
+
+  def force_gc
+    if ObjectSpace.each_object(Magick::Image).count > 100
+      logger.debug "Forcing Garbage Collection"
+      ObjectSpace.garbage_collect
+    end
   end
 end
