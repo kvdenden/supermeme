@@ -12,6 +12,7 @@ class DesignsController < ApplicationController
     @text = text
 
     redirect_to design_path(text: "Supermeme") and return if @text.blank?
+    redirect_to design_path(text: @text.slice(0, 32)) and return if @text.length > 32
 
     selected_color = params.fetch("color", "Black")
     selected_size = params.fetch("size", "M")
