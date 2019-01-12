@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :product do
-    external_id { Faker::Number.number(4) }
     title { "Unisex T-Shirt" }
     description { Faker::Lorem.sentence }
   end
