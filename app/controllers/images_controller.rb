@@ -23,7 +23,7 @@ class ImagesController < ApplicationController
     image && image.destroy!
   end
 
-  def product_variant
+  def printfile
     designer = DESIGNS.fetch(params["design"].to_sym, nil)
     return head 404 unless designer
 
