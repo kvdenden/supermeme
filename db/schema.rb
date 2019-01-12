@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_050108) do
+ActiveRecord::Schema.define(version: 2019_01_12_050914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,8 +105,6 @@ ActiveRecord::Schema.define(version: 2019_01_12_050108) do
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "printfile_id"
-    t.index ["printfile_id"], name: "index_variants_on_printfile_id"
     t.index ["product_id"], name: "index_variants_on_product_id"
   end
 
@@ -118,6 +116,5 @@ ActiveRecord::Schema.define(version: 2019_01_12_050108) do
   add_foreign_key "line_items", "purchase_orders"
   add_foreign_key "line_items", "variants"
   add_foreign_key "purchase_orders", "addresses"
-  add_foreign_key "variants", "printfiles"
   add_foreign_key "variants", "products"
 end

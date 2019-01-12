@@ -4,7 +4,6 @@ class Variant < ApplicationRecord
   has_many :fulfiller_variants, dependent: :destroy
   has_many :fulfillers, through: :fulfiller_variants
   belongs_to :product
-  belongs_to :printfile
 
   validates :color, presence: true
   validates :size, presence: true
