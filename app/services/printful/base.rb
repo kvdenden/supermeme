@@ -44,7 +44,8 @@ module Printful
     end
 
     def external_id(model)
-      Rails.env.development? ? "#{model.id}_dev" : model.id
+      suffix = Rails.application.config.printful[:external_id_suffix]
+      suffix ? "#{model.id}_#{suffix}" : model.id
     end
 
     def printful_variant(variant)
