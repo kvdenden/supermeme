@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Variant < ApplicationRecord
+  has_many :fulfiller_variants, dependent: :destroy
+  has_many :fulfillers, through: :fulfiller_variants
   belongs_to :product
   belongs_to :printfile
 
