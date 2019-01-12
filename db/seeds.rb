@@ -29,10 +29,16 @@ def parse_fulfiller_product_data(data, fulfillers)
   FulfillerProduct.new(fulfiller_product_attributes)
 end
 
-def parse_variant_data(data, printfiles)
-  variant_attributes = %w(external_id color size price).map { |a| [a.to_sym, data[a]] }.to_h
-  variant_attributes[:printfile] = printfiles.fetch(data['printfile'])
+def parse_variant_data(data)
+  variant_attributes = %w(color size price).map { |a| [a.to_sym, data[a]] }.to_h
   Variant.new(variant_attributes)
+end
+
+def parse_fulfiller_variant_data(data, fulfillers, printfiles)
+  fulfiller_variant_attributes = %w(external_id).map { |a| [a.to_sym, data[a]] }.to_h
+  fulfiller_variant_attributes[:fulfiller] = fulfillers.fetch(data['fulfiller'])
+  fulfiller_variant_attributes[:printfile] = printfiles.fetch(data['printfile'])
+  FulfillerVariant.new(fulfiller_variant_attributes)
 end
 
 seeds = YAML.load_file('./db/seed_data.yml')
@@ -62,8 +68,14 @@ seeds['products'].each do |key, product_data|
   end
 
   product_data['variants'].each do |variant_data|
-    variant = parse_variant_data(variant_data, printfiles)
+    variant = parse_variant_data(variant_data)
     variant.product = product
     variant.save!
+
+    variant_data['fulfiller_variants'].each do |fulfiller_variant_data|
+      fulfiller_variant = parse_fulfiller_variant_data(fulfiller_variant_data, fulfillers, printfiles)
+      fulfiller_variant.variant = variant
+      fulfiller_variant.save!
+    end
   end
 end

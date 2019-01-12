@@ -25,83 +25,115 @@ products:
       - fulfiller: printful
         external_id: 71
     variants:
-      - external_id: 9527
-        color: Black
+      - color: Black
         size: XS
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4016
-        color: Black
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 9527
+            printfile: t-shirt
+      - color: Black
         size: S
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4017
-        color: Black
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4016
+            printfile: t-shirt
+      - color: Black
         size: M
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4018
-        color: Black
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4017
+            printfile: t-shirt
+      - color: Black
         size: L
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4019
-        color: Black
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4018
+            printfile: t-shirt
+      - color: Black
         size: XL
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4020
-        color: Black
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4019
+            printfile: t-shirt
+      - color: Black
         size: 2XL
         price: 25.00
-        printfile: t-shirt
-      - external_id: 5295
-        color: Black
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4020
+            printfile: t-shirt
+      - color: Black
         size: 3XL
         price: 25.00
-        printfile: t-shirt
-      - external_id: 5310
-        color: Black
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 5295
+            printfile: t-shirt
+      - color: Black
         size: 4XL
         price: 25.00
-        printfile: t-shirt
-      - external_id: 9526
-        color: White
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 5310
+            printfile: t-shirt
+      - color: White
         size: XS
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4011
-        color: White
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 9526
+            printfile: t-shirt
+      - color: White
         size: S
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4012
-        color: White
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4011
+            printfile: t-shirt
+      - color: White
         size: M
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4013
-        color: White
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4012
+            printfile: t-shirt
+      - color: White
         size: L
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4014
-        color: White
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4013
+            printfile: t-shirt
+      - color: White
         size: XL
         price: 25.00
-        printfile: t-shirt
-      - external_id: 4015
-        color: White
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4014
+            printfile: t-shirt
+      - color: White
         size: 2XL
         price: 25.00
-        printfile: t-shirt
-      - external_id: 5294
-        color: White
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 4015
+            printfile: t-shirt
+      - color: White
         size: 3XL
         price: 25.00
-        printfile: t-shirt
-      - external_id: 5309
-        color: White
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 5294
+            printfile: t-shirt
+      - color: White
         size: 4XL
         price: 25.00
-        printfile: t-shirt
+        fulfiller_variants:
+          - fulfiller: printful
+            external_id: 5309
+            printfile: t-shirt
