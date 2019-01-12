@@ -3,6 +3,6 @@ class FulfillerVariant < ApplicationRecord
   belongs_to :variant
   belongs_to :printfile
 
-  validates :external_id, presence: true
-  validates :external_id, uniqueness: { scope: :fulfiller_id }
+  validates :sku, presence: true
+  validates :sku, uniqueness: { scope: :fulfiller_id }
 end
