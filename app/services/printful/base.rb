@@ -29,9 +29,11 @@ module Printful
       }.tap { |h| h.merge!(external_id: external_id(order)) if include_id }
     end
 
+    protected
+
     def line_item_payload(item, include_id: true)
       {
-        variant_id: item.variant.external_id,
+        variant_id: printful_id(item.variant),
         quantity: item.quantity,
         retail_price: item.unit_price,
         name: item.title,
@@ -43,6 +45,10 @@ module Printful
 
     def external_id(model)
       Rails.env.development? ? "#{model.id}_dev" : model.id
+    end
+
+    def printful_id(variant)
+      variant.fulfiller_variants.find_by!(fulfiller: Fulfiller.printful).external_id
     end
   end
 end
