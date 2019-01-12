@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_033554) do
+ActiveRecord::Schema.define(version: 2019_01_12_034219) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -24,6 +24,17 @@ ActiveRecord::Schema.define(version: 2019_01_12_033554) do
     t.string "country_code"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "fulfiller_products", force: :cascade do |t|
+    t.bigint "fulfiller_id"
+    t.bigint "product_id"
+    t.integer "external_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fulfiller_id", "external_id"], name: "index_fulfiller_products_on_fulfiller_id_and_external_id", unique: true
+    t.index ["fulfiller_id"], name: "index_fulfiller_products_on_fulfiller_id"
+    t.index ["product_id"], name: "index_fulfiller_products_on_product_id"
   end
 
   create_table "fulfillers", force: :cascade do |t|
@@ -88,6 +99,8 @@ ActiveRecord::Schema.define(version: 2019_01_12_033554) do
     t.index ["product_id"], name: "index_variants_on_product_id"
   end
 
+  add_foreign_key "fulfiller_products", "fulfillers"
+  add_foreign_key "fulfiller_products", "products"
   add_foreign_key "line_items", "purchase_orders"
   add_foreign_key "line_items", "variants"
   add_foreign_key "purchase_orders", "addresses"
