@@ -35,7 +35,7 @@ def parse_variant_data(data)
 end
 
 def parse_fulfiller_variant_data(data, fulfillers, printfiles)
-  fulfiller_variant_attributes = %w(external_id).map { |a| [a.to_sym, data[a]] }.to_h
+  fulfiller_variant_attributes = %w(sku).map { |a| [a.to_sym, data[a]] }.to_h
   fulfiller_variant_attributes[:fulfiller] = fulfillers.fetch(data['fulfiller'])
   fulfiller_variant_attributes[:printfile] = printfiles.fetch(data['printfile'])
   FulfillerVariant.new(fulfiller_variant_attributes)
