@@ -2,10 +2,10 @@
 
 module Designs
   class Supreme
-    def self.call(text, variant)
+    def self.call(text, printfile)
       # get dimensions of printfile
-      canvas_width = variant.printfile.width
-      canvas_height = variant.printfile.height
+      canvas_width = printfile.width
+      canvas_height = printfile.height
 
       canvas = Magick::Image.new(canvas_width, canvas_height) do |image|
         image.background_color = 'Transparent'

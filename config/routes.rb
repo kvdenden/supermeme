@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resource :design, only: [:new, :create, :show]
 
   get 'images/mockups/t-shirt/:color/*text.:format', to: 'images#mockup', as: :mockup_image, defaults: { design: 'supreme', color: 'black', format: 'jpg' }
-  get 'images/printfiles/:variant_id/:design/*text.:format', to: 'images#product_variant', as: :product_variant_image, defaults: { design: 'supreme', format: 'png' }
+  get 'images/printfiles/:printfile_id/:design/*text.:format', to: 'images#printfile', as: :printfile_image, defaults: { design: 'supreme', format: 'png' }
   get 'images/:design(/x:size)/*text.:format', to: 'images#show', as: :generated_image, defaults: { design: 'supreme', format: 'png' }
 
   get 'cart', to: 'cart#show'

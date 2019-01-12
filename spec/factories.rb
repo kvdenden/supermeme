@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :product do
-    external_id { Faker::Number.number(4) }
     title { "Unisex T-Shirt" }
     description { Faker::Lorem.sentence }
   end
@@ -12,7 +11,6 @@ FactoryBot.define do
   end
 
   factory :variant do
-    external_id { Faker::Number.number(4) }
     product
     color { Faker::Color.color_name.capitalize }
     size { %w[XS S M L XL 2XL 3XL 4XL].sample }

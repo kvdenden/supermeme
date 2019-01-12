@@ -27,11 +27,11 @@ class ImagesController < ApplicationController
     designer = DESIGNS.fetch(params["design"].to_sym, nil)
     return head 404 unless designer
 
-    variant_id = params.fetch("variant_id")
+    printfile_id = params.fetch("printfile_id")
     text = params.fetch("text", "Supermeme")
 
-    variant = Variant.find(variant_id)
-    design = designer.call(CGI::unescape(text), variant)
+    printfile = Printfile.find(printfile_id)
+    design = designer.call(CGI::unescape(text), printfile)
 
     send_data design.to_blob, type: design.mime_type, disposition: 'inline'
   ensure
@@ -47,10 +47,11 @@ class ImagesController < ApplicationController
 
     product = Product.first
     variant = product.variants.where(color: color).first || product.variants.first
+    printfile = variant.fulfiller_variants.first.printfile
     mockup_generator = Mockups::TShirt.new(color: variant.color)
 
     text = params.fetch("text", "Supermeme")
-    design = designer.call(CGI::unescape(text), variant)
+    design = designer.call(CGI::unescape(text), printfile)
     mockup = mockup_generator.call(design, max_width: width)
 
     send_data mockup.to_blob, type: mockup.mime_type, disposition: 'inline'

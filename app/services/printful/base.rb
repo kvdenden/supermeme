@@ -29,20 +29,31 @@ module Printful
       }.tap { |h| h.merge!(external_id: external_id(order)) if include_id }
     end
 
+    protected
+
     def line_item_payload(item, include_id: true)
       {
-        variant_id: item.variant.external_id,
+        variant_id: printful_variant(item.variant).external_id,
         quantity: item.quantity,
         retail_price: item.unit_price,
         name: item.title,
         files: [{
-          url: Rails.application.routes.url_helpers.product_variant_image_url(variant_id: item.variant_id, text: item.text)
+          url: printfile_url(item)
         }]
       }.tap { |h| h.merge!(external_id: external_id(item)) if include_id }
     end
 
     def external_id(model)
-      Rails.env.development? ? "#{model.id}_dev" : model.id
+      suffix = Rails.application.config.printful[:external_id_suffix]
+      suffix ? "#{model.id}_#{suffix}" : model.id
+    end
+
+    def printful_variant(variant)
+      variant.fulfiller_variants.find_by!(fulfiller: Fulfiller.printful)
+    end
+
+    def printfile_url(item)
+      Rails.application.routes.url_helpers.printfile_image_url(printfile_id: printful_variant(item.variant).printfile_id, text: item.text)
     end
   end
 end

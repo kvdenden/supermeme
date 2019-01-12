@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_21_065010) do
+ActiveRecord::Schema.define(version: 2019_01_12_050914) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,38 @@ ActiveRecord::Schema.define(version: 2018_12_21_065010) do
     t.string "state_code"
     t.string "zip_code"
     t.string "country_code"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "fulfiller_products", force: :cascade do |t|
+    t.bigint "fulfiller_id"
+    t.bigint "product_id"
+    t.integer "external_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fulfiller_id", "external_id"], name: "index_fulfiller_products_on_fulfiller_id_and_external_id", unique: true
+    t.index ["fulfiller_id", "product_id"], name: "index_fulfiller_products_on_fulfiller_id_and_product_id", unique: true
+    t.index ["fulfiller_id"], name: "index_fulfiller_products_on_fulfiller_id"
+    t.index ["product_id"], name: "index_fulfiller_products_on_product_id"
+  end
+
+  create_table "fulfiller_variants", force: :cascade do |t|
+    t.bigint "fulfiller_id"
+    t.bigint "variant_id"
+    t.bigint "printfile_id"
+    t.integer "external_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["fulfiller_id", "external_id"], name: "index_fulfiller_variants_on_fulfiller_id_and_external_id", unique: true
+    t.index ["fulfiller_id", "variant_id"], name: "index_fulfiller_variants_on_fulfiller_id_and_variant_id", unique: true
+    t.index ["fulfiller_id"], name: "index_fulfiller_variants_on_fulfiller_id"
+    t.index ["printfile_id"], name: "index_fulfiller_variants_on_printfile_id"
+    t.index ["variant_id"], name: "index_fulfiller_variants_on_variant_id"
+  end
+
+  create_table "fulfillers", force: :cascade do |t|
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -49,12 +81,10 @@ ActiveRecord::Schema.define(version: 2018_12_21_065010) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.integer "external_id"
     t.string "title"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["external_id"], name: "index_products_on_external_id", unique: true
   end
 
   create_table "purchase_orders", force: :cascade do |t|
@@ -69,22 +99,22 @@ ActiveRecord::Schema.define(version: 2018_12_21_065010) do
   end
 
   create_table "variants", force: :cascade do |t|
-    t.integer "external_id"
     t.bigint "product_id"
     t.string "color"
     t.string "size"
     t.decimal "price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "printfile_id"
-    t.index ["external_id"], name: "index_variants_on_external_id", unique: true
-    t.index ["printfile_id"], name: "index_variants_on_printfile_id"
     t.index ["product_id"], name: "index_variants_on_product_id"
   end
 
+  add_foreign_key "fulfiller_products", "fulfillers"
+  add_foreign_key "fulfiller_products", "products"
+  add_foreign_key "fulfiller_variants", "fulfillers"
+  add_foreign_key "fulfiller_variants", "printfiles"
+  add_foreign_key "fulfiller_variants", "variants"
   add_foreign_key "line_items", "purchase_orders"
   add_foreign_key "line_items", "variants"
   add_foreign_key "purchase_orders", "addresses"
-  add_foreign_key "variants", "printfiles"
   add_foreign_key "variants", "products"
 end
