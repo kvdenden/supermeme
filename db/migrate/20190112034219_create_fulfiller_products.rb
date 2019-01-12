@@ -8,5 +8,6 @@ class CreateFulfillerProducts < ActiveRecord::Migration[5.2]
       t.timestamps
     end
     add_index :fulfiller_products, [:fulfiller_id, :external_id], unique: true
+    add_index :fulfiller_products, [:fulfiller_id, :product_id], unique: true
   end
 end
