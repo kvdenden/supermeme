@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_044911) do
+ActiveRecord::Schema.define(version: 2019_01_12_050108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,7 +99,6 @@ ActiveRecord::Schema.define(version: 2019_01_12_044911) do
   end
 
   create_table "variants", force: :cascade do |t|
-    t.integer "external_id"
     t.bigint "product_id"
     t.string "color"
     t.string "size"
@@ -107,7 +106,6 @@ ActiveRecord::Schema.define(version: 2019_01_12_044911) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "printfile_id"
-    t.index ["external_id"], name: "index_variants_on_external_id", unique: true
     t.index ["printfile_id"], name: "index_variants_on_printfile_id"
     t.index ["product_id"], name: "index_variants_on_product_id"
   end
