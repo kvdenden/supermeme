@@ -13,11 +13,11 @@ module Designs
       end
 
       # calculate suitable font size
-      font_size = canvas_width * 0.15
+      font_size = canvas_width * 0.125
       design = generator.call(text, size: font_size)
 
       # scale down design if it is too big
-      max_width = canvas_width * 0.9
+      max_width = canvas_width * 0.8
       if design.columns > max_width
         design.resize!(max_width / design.columns)
       end
