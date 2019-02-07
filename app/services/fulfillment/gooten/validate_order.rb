@@ -12,10 +12,13 @@ module Fulfillment
       def call
         response = RestClient.get(request_uri)
         body = JSON.parse(response.body)
-        byebug
-        if body["IsValid"] || body["Score"] > 90
+        score = body["Score"]
+        if score > 90
           true
         else
+          if score > 0
+            Rails.logger.debug("Address validation failed with score #{score}: #{order.address}")
+          end
           reason = body["Reason"].gsub(/Score: \d+\. /, '')
           order.errors.add(:base, reason)
           false

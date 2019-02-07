@@ -12,6 +12,10 @@ class Address < ApplicationRecord
     Countries.lookup(country_code)
   end
 
+  def to_s
+    [street1, street2, city, zip_code, state_code, country_code].reject { |s| s.blank? }.join(", ")
+  end
+
   private
 
   def validate_country
