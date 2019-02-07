@@ -6,12 +6,17 @@ class PurchaseOrder < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
-  validates :name, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
   validates :email, format: { with: URI::MailTo::EMAIL_REGEXP }
   validates :line_items, presence: true
   validates :shipping_fee, presence: true, numericality: { greater_than_or_equal_to: 0 }
 
   before_create :set_shipping_fee
+
+  def name
+    [first_name, last_name].join(" ")
+  end
 
   def total
     subtotal + shipping_fee
