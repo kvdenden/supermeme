@@ -1,4 +1,4 @@
 module Fulfillment
-  ValidateOrder = Printful::ValidateOrder
+  ValidateOrder = Gooten::ValidateOrder
   CreateOrder = Printful::CreateOrder
 end
