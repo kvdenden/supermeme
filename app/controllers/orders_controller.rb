@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
     @address = @order.address || Address.new
 
-    flash[:printful_errors]&.each do |err|
+    flash[:fulfillment_errors]&.each do |err|
       @order.errors.add(:base, err)
     end
 
@@ -24,11 +24,11 @@ class OrdersController < ApplicationController
     order = cart
 
     if order.update(order_params)
-      ok_for_printful = Printful::ValidateOrder.new(order).call
-      if ok_for_printful
+      ok_for_fulfiller = Fulfillment::ValidateOrder.new(order).call
+      if ok_for_fulfiller
         redirect_to action: :pay
       else
-        flash[:printful_errors] = order.errors[:base]
+        flash[:fulfillment_errors] = order.errors[:base]
         redirect_to action: :new
       end
     else
@@ -50,9 +50,8 @@ class OrdersController < ApplicationController
 
     @order.update(status: 'paid')
 
-    # send order to printful
-    confirm_order = Rails.application.config.printful[:confirm_order]
-    Printful::CreateOrder.new(@order).call(confirm: confirm_order)
+    # send order to fulfiller
+    Fulfillment::CreateOrder.new(@order).call
 
     # clear cart
     session[:cart_id] = nil
