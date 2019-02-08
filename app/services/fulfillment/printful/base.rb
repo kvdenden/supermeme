@@ -9,6 +9,10 @@ module Fulfillment
         @order = order
       end
 
+      def fulfiller
+        Fulfiller.printful
+      end
+
       protected
 
       def purchase_order_payload(include_id: true)
@@ -45,12 +49,12 @@ module Fulfillment
       end
 
       def external_id(model)
-        suffix = Rails.application.config.printful[:external_id_suffix]
+        suffix = Rails.application.config.fulfillment[:external_id_suffix]
         suffix ? "#{model.id}_#{suffix}" : model.id
       end
 
       def printful_variant(variant)
-        variant.fulfiller_variants.find_by!(fulfiller: Fulfiller.printful)
+        variant.fulfiller_variants.find_by!(fulfiller: fulfiller)
       end
 
       def printfile_url(item)

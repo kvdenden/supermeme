@@ -9,8 +9,14 @@ module Fulfillment
         @order = order
       end
 
-      def call
-        RestClient.post(request_uri, purchase_order_payload.to_json, content_type: :json)
+      def call(confirm: false)
+        response = RestClient.post(request_uri, purchase_order_payload(confirm).to_json, content_type: :json)
+        body = JSON.parse(response.body)
+        body["Id"]
+      end
+
+      def fulfiller
+        Fulfiller.gooten
       end
 
       private
@@ -20,9 +26,9 @@ module Fulfillment
         "https://api.print.io/api/v/5/source/api/orders/?recipeid=#{recipe_id}"
       end
 
-      def purchase_order_payload
+      def purchase_order_payload(confirm)
         {
-          IsInTestMode: true,
+          IsInTestMode: !confirm,
           ShipToAddress: {
             FirstName: order.first_name,
             LastName: order.last_name,
@@ -70,12 +76,12 @@ module Fulfillment
       end
 
       def external_id(model)
-        suffix = Rails.application.config.gooten[:external_id_suffix]
+        suffix = Rails.application.config.fulfillment[:external_id_suffix]
         suffix ? "#{model.id}_#{suffix}" : model.id
       end
 
       def gooten_variant(variant)
-        variant.fulfiller_variants.find_by!(fulfiller: Fulfiller.gooten)
+        variant.fulfiller_variants.find_by!(fulfiller: fulfiller)
       end
 
       def printfile_url(item)

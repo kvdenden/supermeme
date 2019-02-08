@@ -51,7 +51,9 @@ class OrdersController < ApplicationController
     @order.update(status: 'paid')
 
     # send order to fulfiller
-    Fulfillment::CreateOrder.new(@order).call
+    create_order = Fulfillment::CreateOrder.new(@order)
+    fulfillment_id = create_order.call(confirm: Rails.configuration.fulfillment[:confirm_order])
+    @order.update(fulfiller: create_order.fulfiller, fulfillment_id: fulfillment_id)
 
     # clear cart
     session[:cart_id] = nil

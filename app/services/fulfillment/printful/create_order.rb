@@ -5,7 +5,8 @@ module Fulfillment
     class CreateOrder < Base
       def call(confirm: false)
         payload = purchase_order_payload(include_id: true)
-        PrintfulAPI::Order.create(payload, confirm: confirm)
+        order = PrintfulAPI::Order.create(payload, confirm: confirm)
+        order.id
       end
     end
   end
