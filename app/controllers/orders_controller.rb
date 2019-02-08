@@ -10,7 +10,7 @@ class OrdersController < ApplicationController
 
     @address = @order.address || Address.new
 
-    flash[:printful_errors]&.each do |err|
+    flash[:fulfillment_errors]&.each do |err|
       @order.errors.add(:base, err)
     end
 
@@ -24,11 +24,11 @@ class OrdersController < ApplicationController
     order = cart
 
     if order.update(order_params)
-      ok_for_printful = Printful::ValidateOrder.new(order).call
-      if ok_for_printful
+      ok_for_fulfiller = Fulfillment::ValidateOrder.new(order).call
+      if ok_for_fulfiller
         redirect_to action: :pay
       else
-        flash[:printful_errors] = order.errors[:base]
+        flash[:fulfillment_errors] = order.errors[:base]
         redirect_to action: :new
       end
     else
@@ -50,9 +50,10 @@ class OrdersController < ApplicationController
 
     @order.update(status: 'paid')
 
-    # send order to printful
-    confirm_order = Rails.application.config.printful[:confirm_order]
-    Printful::CreateOrder.new(@order).call(confirm: confirm_order)
+    # send order to fulfiller
+    create_order = Fulfillment::CreateOrder.new(@order)
+    fulfillment_id = create_order.call(confirm: Rails.configuration.fulfillment[:confirm_order])
+    @order.update(fulfiller: create_order.fulfiller, fulfillment_id: fulfillment_id)
 
     # clear cart
     session[:cart_id] = nil
@@ -73,6 +74,6 @@ class OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:purchase_order).permit(:name, :email, address_attributes: [:street1, :street2, :city, :state, :zip_code, :state_code, :country_code])
+    params.require(:purchase_order).permit(:first_name, :last_name, :email, address_attributes: [:street1, :street2, :city, :state, :zip_code, :state_code, :country_code])
   end
 end

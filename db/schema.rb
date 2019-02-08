@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_100544) do
+ActiveRecord::Schema.define(version: 2019_02_08_085114) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -91,10 +91,14 @@ ActiveRecord::Schema.define(version: 2019_01_12_100544) do
     t.bigint "address_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.string "email"
     t.decimal "shipping_fee"
+    t.string "first_name"
+    t.string "last_name"
+    t.bigint "fulfiller_id"
+    t.string "fulfillment_id"
     t.index ["address_id"], name: "index_purchase_orders_on_address_id"
+    t.index ["fulfiller_id"], name: "index_purchase_orders_on_fulfiller_id"
   end
 
   create_table "variants", force: :cascade do |t|
@@ -115,5 +119,6 @@ ActiveRecord::Schema.define(version: 2019_01_12_100544) do
   add_foreign_key "line_items", "purchase_orders"
   add_foreign_key "line_items", "variants"
   add_foreign_key "purchase_orders", "addresses"
+  add_foreign_key "purchase_orders", "fulfillers"
   add_foreign_key "variants", "products"
 end
