@@ -9,9 +9,9 @@
 
 <div class="jumbotron jumbotron-fluid" id="hero">
   <div class="container" id="hero-content">
-    <%= image_tag("supermeme.png", :alt => "supermeme logo", :class => "logo" ) %>
+    <%= link_to image_tag("supermeme.png", :alt => "supermeme logo", :class => "logo logo-animated"), new_design_path %>
     <h1>Create your own Supreme T-Shirt in seconds.</h1>
-    <%= link_to "Create your design", new_design_path, :class =>"btn btn-lg btn-supreme" %>
+    <%= link_to "Create your design", new_design_path, :class =>"btn btn-lg btn-supreme btn-animated" %>
   </div>
 </div>
 
@@ -19,14 +19,16 @@
 <div class="container">
   <div class="row" id="who-are-we">
     <div class="col-md-6">
-      <h1>What is Supermeme?</h1>
-      <p>Are you tired of wearing the same mass produced clothes as everybody else on the street?</p>
-      <p>We were. So we decided to create Supermeme, an online tool that allows you to easily create and print designs on any type of clothing you want!</p>
-      <p>Our goal is to act as a counter-culture movement that enables anyone to create personalised and quirky clothing with an iconic edge.</p>
-      <p><%= link_to "Create your design", new_design_path,:class =>"btn btn-lg btn-supreme" %></p>
+      <section>
+        <h1>What is Supermeme?</h1>
+        <p>Are you tired of wearing the same mass produced clothes as everybody else on the street?</p>
+        <p>We were. So we decided to create Supermeme, an online tool that allows you to easily create and print designs on any type of clothing you want!</p>
+        <p>Our goal is to act as a counter-culture movement that enables anyone to create personalised and quirky clothing with an iconic edge.</p>
+        <p><%= link_to "Create your design", new_design_path,:class =>"btn btn-lg btn-supreme btn-animated" %></p>
+      </section>
     </div>
     <div class="col-md-6">
-      <%= image_tag("supermeme-home.jpg", :alt => "supermeme logo", :class => "logo" ) %>
+      <%= image_tag("supermeme-home.jpg", :alt => "man with fake supreme t-shirt") %>
     </div>
   </div>
 </div>
@@ -38,48 +40,56 @@
     <div class="col-md-12">
       <h1>How it works</h1>
     </div>
-    <div class="process-card col-sm-3">
-      <div class="process-image">
-        <span class="oi oi-brush" title="icon brush" aria-hidden="true"></span>
-      </div>
-      <div class="process-title">
-        <h4>Design</h4>
-      </div>
-      <div class="process-description">
-        <p>Our user-friendly Supermeme generator enables you to easily create and preview your unique <strong>design</strong>.</p>
-      </div>
-    </div>
-    <div class="process-card col-sm-3">
-      <div class="process-image">
-        <span class="oi oi-print" title="icon print" aria-hidden="true"></span>
-      </div>
-      <div class="process-title">
-        <h4>Print</h4>
-      </div>
-      <div class="process-description">
-        <p>Choose a size, color and type of clothing and we'll <strong>print</strong> your personalized design for you!</p>
+    <div class="col-sm-6 col-lg-3">
+      <div class="process-card">
+        <div class="process-image">
+          <span class="oi oi-brush" title="icon brush" aria-hidden="true"></span>
+        </div>
+        <div class="process-title">
+          <h4>Design</h4>
+        </div>
+        <div class="process-description">
+          <p>Our user-friendly Supermeme generator enables you to easily create and preview your unique <strong>design</strong>.</p>
+        </div>
       </div>
     </div>
-    <div class="process-card col-sm-3">
-      <div class="process-image">
-        <span class="oi oi-timer" title="icon timer" aria-hidden="true"></span>
-      </div>
-      <div class="process-title">
-        <h4>Delivery</h4>
-      </div>
-      <div class="process-description">
-        <p>We have warehouses all over the world, so you can be sure your creation will be <strong>delivered</strong> asap.</p>
+    <div class="col-sm-6 col-lg-3">
+      <div class="process-card">
+        <div class="process-image">
+          <span class="oi oi-print" title="icon print" aria-hidden="true"></span>
+        </div>
+        <div class="process-title">
+          <h4>Print</h4>
+        </div>
+        <div class="process-description">
+          <p>Choose a size, color and type of clothing and we'll <strong>print</strong> your personalized design for you!</p>
+        </div>
       </div>
     </div>
-    <div class="process-card col-sm-3">
-      <div class="process-image">
-        <span class="oi oi-heart" title="icon heart" aria-hidden="true"></span>
+    <div class="col-sm-6 col-lg-3">
+      <div class="process-card">
+        <div class="process-image">
+          <span class="oi oi-timer" title="icon timer" aria-hidden="true"></span>
+        </div>
+        <div class="process-title">
+          <h4>Delivery</h4>
+        </div>
+        <div class="process-description">
+          <p>We have warehouses all over the world, so you can be sure your creation will be <strong>delivered</strong> asap.</p>
+        </div>
       </div>
-      <div class="process-title">
-        <h4>Enjoy</h4>
-      </div>
-      <div class="process-description">
-        <p>Simply <strong>enjoy</strong> wearing your new t-shirt or sweater and rock your unique style!</p>
+    </div>
+    <div class="col-sm-6 col-lg-3">
+      <div class="process-card">
+        <div class="process-image">
+          <span class="oi oi-heart" title="icon heart" aria-hidden="true"></span>
+        </div>
+        <div class="process-title">
+          <h4>Enjoy</h4>
+        </div>
+        <div class="process-description">
+          <p>Simply <strong>enjoy</strong> wearing your new t-shirt or sweater and rock your unique style!</p>
+        </div>
       </div>
     </div>
   </div>

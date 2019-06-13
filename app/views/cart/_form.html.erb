@@ -34,7 +34,7 @@
           <td>
             <%= form_tag(update_cart_path, remote: true, authenticity_token: true) do %>
               <%= hidden_field_tag :line_item_id, item.id %>
-              <%= number_field_tag :quantity, item.quantity, min: 1, onchange: "Rails.fire(this.form, 'submit')" %>
+              <%= number_field_tag :quantity, item.quantity, min: 1, onchange: "Rails.fire(this.form, 'submit')", class: "form-control" %>
             <% end %>
           </td>
           <td>

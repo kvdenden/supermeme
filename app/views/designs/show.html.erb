@@ -14,7 +14,7 @@
       <%= image_tag @mockup_url, alt: @variant_title %>
     </div>
     <div class="col-md-6" id="customise-design">
-      <p><%= image_tag @image_url, alt: @text %></p>
+      <p><%= image_tag @image_url, alt: @design_title %></p>
 
       <div class="description">
         <h2><%= @product_title %></h2>
@@ -32,10 +32,14 @@
       </div>
 
       <%= html_description(@product) %>
+      <div class="text-muted">
+        <p><%= link_to "Change design", new_design_path(text: @text) %></p>
+      </div>
 
-      <h3>Size guide</h3>
-      <%= image_tag asset_path("sizechart.jpg"), alt: "Size guide" %>
+      <div class="size-guide">
+        <h3>Size guide</h3>
+        <%= image_tag asset_path("sizechart.jpg"), alt: "Size guide" %>
+      </div>
     </div>
   </div>
-
 </div>
