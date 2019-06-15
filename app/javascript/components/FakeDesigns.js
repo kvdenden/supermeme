@@ -38,13 +38,13 @@ const FakeDesigns = ({ count = 20, category }) => {
 
   return (
     <div style={{ textAlign: "center" }}>
-      <h3>Design inspiration</h3>
+      <h3 style={{ marginBottom: "4rem" }}>Design inspiration</h3>
       <FullWidthContainer>
         <WordCloud words={words} />
         <button
-          className="btn btn-block btn-supreme btn-animated"
+          className="btn btn-lg btn-supreme btn-animated"
           onClick={updateWords}
-          style={{ marginTop: "-1px" }}
+          style={{ marginTop: "2rem" }}
         >
           Refresh
         </button>

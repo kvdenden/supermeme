@@ -39,6 +39,10 @@ body {
 
 nav {
   background-color: $supreme-red;
+
+  .nav-link {
+    font-weight: 500;
+  }
 }
 
 ul {

@@ -29,7 +29,7 @@ const DesignForm = ({ action, initialText = "" }) => {
 
   return (
     <React.Fragment>
-      <div style={{ margin: "1em 0" }}>
+      <div style={{ marginBottom: "1em" }}>
         <TextContainer>
           <Fit>
             <SupremeText>{text || "Supermeme"}</SupremeText>
@@ -45,7 +45,7 @@ const DesignForm = ({ action, initialText = "" }) => {
             value={text}
             onChange={handleTextChange}
             maxLength={24}
-            placeholder="Your text here"
+            placeholder="Write something awesome!"
             className="form-control"
           />
         </div>
