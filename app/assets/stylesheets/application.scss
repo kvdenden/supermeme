@@ -17,6 +17,7 @@
 @import "font-awesome";
 
 $supreme-red: #d82122;
+$text-color: #212529;
 
 @import "typography";
 
@@ -54,19 +55,35 @@ a {
 footer {
   margin-top: 2rem;
   text-align: center;
+  background-color: $text-color;
+  color: darkgray;
+
+  .logo {
+    height: 3rem;
+  }
 
   a {
     color: lightgray;
     &:hover {
       color: white;
     }
-  }
 
+  }
+  .social-media {
+    font-size: 2rem;
+    line-height: 3rem;
+
+    a {
+      margin: 0 0.5rem;
+    }
+  }
   @media screen and (min-width: 576px) {
     text-align: left;
-
     .social-media {
       text-align: right;
+      a:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
@@ -136,11 +153,6 @@ img {
       margin-right: 0;
     }
   }
-}
-
-footer {
-  background-color: black;
-  color: darkgray;
 }
 
 .logo {
