@@ -1,6 +1,6 @@
 //Hero
 #hero {
-  background: image-url("hero.jpg");
+  background: image-url("hero-small.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -8,8 +8,11 @@
   text-align: center;
   display: flex;
   align-items: center;
-
   clip-path: polygon(0 0, 100% 0, 100% 85vh, 0 100%);
+
+  @media only screen and (min-width: 1200px) {
+    background-image: image-url("hero.jpg");
+  }
 
   h1 {
     color: white;
