@@ -16,54 +16,90 @@
 @import "select2-bootstrap";
 @import "font-awesome";
 
-$supreme-red: #D82122;
+$supreme-red: #d82122;
+$text-color: #212529;
+
+@import "typography";
 
 @import "home";
 @import "designs";
 
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
 
 body {
+  box-sizing: border-box;
   min-height: 100vh;
 }
 
 nav {
   background-color: $supreme-red;
+
+  .nav-link {
+    font-weight: 500;
+  }
 }
 
-h1.page-title {
-  margin: 0.5em 0;
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid grey;
-  text-align: center;
+ul {
+  list-style-position: inside;
+}
 
-  @media screen and (min-width: 576px) {
-    text-align: left;
+a {
+  color: $supreme-red;
+  &:hover {
+    color: darken($supreme-red, 10%);
   }
 }
 
 footer {
-  margin-top: 2em;
+  margin-top: 2rem;
   text-align: center;
+  background-color: $text-color;
+  color: darkgray;
+
+  .logo {
+    height: 3rem;
+  }
 
   a {
     color: lightgray;
     &:hover {
       color: white;
     }
-  }
 
+  }
+  .social-media {
+    font-size: 2rem;
+    line-height: 3rem;
+
+    a {
+      margin: 0 0.5rem;
+    }
+  }
   @media screen and (min-width: 576px) {
     text-align: left;
-
     .social-media {
       text-align: right;
+      a:last-child {
+        margin-right: 0;
+      }
     }
   }
 }
 
 .btn-supreme {
-  &:link, &:visited, &:hover, &:active {
-    color:#FDFFFC;
+  &,
+  &:link,
+  &:visited,
+  &:hover,
+  &:focus {
+    @include supreme;
+    color: #fdfffc;
     background-color: $supreme-red;
     border-color: $supreme-red;
   }
@@ -88,13 +124,13 @@ img {
   }
 }
 
-table.cart {
+.cart {
   td {
     vertical-align: middle;
   }
 
   #quantity {
-    max-width: 4em;
+    max-width: 8rem;
   }
 
   .description {
@@ -112,8 +148,8 @@ table.cart {
 
 .icons {
   i.fa {
-    font-size: 2em;
-    margin: 0 5px;
+    font-size: 2rem;
+    margin: 0 0.5rem;
     &:first-child {
       margin-left: 0;
     }
@@ -123,7 +159,9 @@ table.cart {
   }
 }
 
-footer {
-  background-color: black;
-  color:darkgray;
+.logo {
+  transition: all 0.2s;
+  &:hover {
+    transform: rotate(-5deg) scale(1.1);
+  }
 }

@@ -8,11 +8,11 @@ Easily design your own t-shirt
 
 ### Requirements
 
-- ruby 2.5.3 + bundler
+- ruby 2.6 + bundler
 - postgresql
 - imagemagick
 
-Run local server: `bundle exec rails server`
+Run local server: `./bin/webpack-dev-server` and `bundle exec rails server`
 
 ## Testing
 

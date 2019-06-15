@@ -57,6 +57,10 @@ gem 'newrelic_rpm'
 gem 'rollbar'
 gem 'barnes'
 gem 'rack-timeout'
+gem 'faker'
+
+gem 'webpacker'
+gem 'react-rails'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -64,7 +68,6 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'rails-controller-testing'
   gem 'factory_bot_rails'
-  gem 'faker'
   gem 'dotenv-rails'
   gem 'rubocop', require: false
 end

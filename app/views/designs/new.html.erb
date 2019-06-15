@@ -8,19 +8,16 @@
 } %>
 
 <div class="container">
-    <div class="row" id="mockup-generator">
-      <div class="col-sm-12" id="generator-title">
-        <h1>Supermeme generator</h1>
-      </div>
-      <div class="col-sm-6">
-        <%= image_tag("mockup-generator.jpg", :alt => "supermeme mockup generator", :class => "logo" ) %>
-      </div>
-      <div class="col-sm-6" id="generator-input">
-        <h4>Write something awesome!</h4>
-        <%= form_tag design_path do %>
-          <%= text_field_tag(:text, "", :placeholder => "Your text here", :id => "text-field", maxlength: 32, :class => "form-control form-control-lg") %>
-          <%= submit_tag("Create", :class => "btn btn-primary") %>
-        <% end %>
-      </div>
+  <h1 class="page-title">Create your design</h1>
+  <div class="row">
+    <div class="col-lg-8">
+    <%= react_component("DesignForm", { action: design_path, initialText: @text }) %>
+    </div>
+    <div class="col-lg-4 order-lg-first mt-5 mt-lg-0">
+      <%= image_tag("mockup-generator.jpg", :alt => "Supreme style white t-shirt", class:"align-middle" ) %>
+    </div>
+  </div>
+  <div id="fake-designs">
+    <%= react_component("FakeDesigns", { count: 25 }) %>
   </div>
 </div>

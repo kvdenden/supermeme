@@ -8,8 +8,9 @@
     <%= display_meta_tags site: 'Supermeme', reverse: true, canonical: canonical_url, og: { url: :canonical, site_name: :site, title: :title, description: :description } %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application' %>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/open-iconic/1.1.1/font/css/open-iconic-bootstrap.min.css" integrity="sha256-BJ/G+e+y7bQdrYkS2RBTyNfBHpA9IuGaPmf9htub5MQ=" crossorigin="anonymous" />
-
+    <link rel="stylesheet" href="https://use.typekit.net/aat8vag.css"> <%# futura pt %>
     <%= favicon_link_tag asset_path('favicon.png') %>
 
     <% if Rails.application.config.google_analytics[:tracking_id] %>

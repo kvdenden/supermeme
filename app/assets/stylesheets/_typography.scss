@@ -1,0 +1,84 @@
+@mixin supreme {
+  font-family: futura-pt, sans-serif;
+  font-weight: 600;
+  font-style: italic;
+  letter-spacing: -0.05em;
+}
+
+body {
+  font-family: futura-pt, sans-serif;
+  font-weight: 300;
+  font-size: 1.25rem;
+  line-height: 1.2;
+  color: $text-color;
+}
+
+strong {
+  color: black;
+  font-weight: 600;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @include supreme;
+  line-height: 1;
+  margin-bottom: 2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  @media screen and (min-width: 576px) {
+    font-size: 4rem;
+  }
+}
+h2 {
+  font-size: 2.5rem;
+  @media screen and (min-width: 576px) {
+    font-size: 3rem;
+  }
+}
+h3 {
+  font-size: 2.5rem;
+}
+h4 {
+  font-size: 2rem;
+}
+h5 {
+  font-size: 1.5rem;
+}
+h6 {
+  font-size: 1.25rem;
+}
+
+.page-title {
+  margin: 2rem 0 4rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid grey;
+  text-align: center;
+
+  @media screen and (min-width: 576px) {
+    text-align: left;
+  }
+}
+
+.btn-lg {
+  font-size: 1.5rem;
+}
+
+.btn-animated {
+  transition: all 0.2s;
+
+  &:hover {
+    transform: translateY(-0.2rem) scale(1.05);
+    box-shadow: 0 1rem 2rem rgba(black, 0.2);
+  }
+
+  &:active {
+    transform: translateY(-0.1rem);
+    box-shadow: 0 0.5rem 1rem rgba(black, 0.2);
+  }
+}

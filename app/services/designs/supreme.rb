@@ -17,16 +17,14 @@ module Designs
       design = generator.call(text, size: font_size)
 
       # scale down design if it is too big
-      max_width = canvas_width * 0.8
-      if design.columns > max_width
-        design.resize!(max_width / design.columns)
-      end
+      max_width = canvas_width * 0.9
+      design.resize!(max_width / design.columns) if design.columns > max_width
 
       # place design on canvas
       offset_y = canvas_height * -0.25
       canvas.composite!(design, Magick::CenterGravity, 0, offset_y, Magick::OverCompositeOp)
     ensure
-      design && design.destroy!
+      design&.destroy!
     end
 
     def self.generator
