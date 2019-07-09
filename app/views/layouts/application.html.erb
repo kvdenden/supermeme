@@ -16,6 +16,7 @@
     <% if Rails.application.config.google_analytics[:tracking_id] %>
       <%= render "analytics", tracking_id: Rails.application.config.google_analytics[:tracking_id] %>
     <% end %>
+    <%= render "facebook_pixel" %>
   </head>
 
   <body class="d-flex flex-column">
