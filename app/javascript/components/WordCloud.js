@@ -38,7 +38,10 @@ const WordCloud = ({ words }) => {
   return (
     <WordContainer>
       {words.map(word => (
-        <a key={word} href={`/design?text=${encodeURIComponent(word)}`}>
+        <a
+          key={word}
+          href={`/design?text=${encodeURIComponent(word).replace(/%20/g, "+")}`}
+        >
           <SupremeText>{word}</SupremeText>
         </a>
       ))}
