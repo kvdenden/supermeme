@@ -27,21 +27,11 @@
 
 //Who we are section
 #who-are-we {
-  margin: 4rem 0 6rem 0;
-  display: flex;
   align-items: center;
-  section {
-    margin-bottom: 4rem;
-  }
-  @media only screen and (min-width: 1200px) {
-    margin: 6rem 0 8rem 0;
-  }
 }
 
 #how-we-work {
-  margin: 6rem 0 4rem;
   text-align: center;
-
   img {
     max-width: 100%;
   }
