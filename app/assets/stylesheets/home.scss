@@ -35,19 +35,6 @@
   }
   @media only screen and (min-width: 1200px) {
     margin: 6rem 0 8rem 0;
-
-  }
-}
-
-.parallax {
-  background: image-url("parallax1.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 40vh;
-
-  @media only screen and (min-width: 1200px) {
-    background-attachment: fixed;
   }
 }
 
