@@ -9,11 +9,15 @@
 
 <div class="jumbotron jumbotron-fluid" id="hero">
   <div class="container" id="hero-content">
-    <%= link_to image_tag("supermeme.png", :alt => "supermeme logo", :class => "logo logo-animated"), new_design_path %>
-    <h1>Create your own Supreme T-Shirt in seconds.</h1>
+  <div class="row">
+  <div class="col-12 col-md-8 my-auto">
+    <h1>Create your own<br>Supreme T-Shirts<br>in seconds</h1>
     <%= link_to "Get Started", new_design_path, :class =>"btn btn-lg btn-supreme btn-animated" %>
   </div>
-</div>
+  <div class="col-4 p-md-3 p-lg-5 d-none d-md-block">
+  <%= image_tag("hero-t-shirt.png", :alt => "white T-shirt on a hanger with supermeme.co in the supreme box logo.") %>
+  </div>
+</div></div></div>
 
 
 <div class="container py-3">
