@@ -48,7 +48,7 @@ const DesignForm = ({ action, initialText = "" }) => {
             placeholder="Write something awesome!"
             className="form-control"
           />
-          <small id="designHelp" className="form-text text-muted">
+          <small id="designHelp" className="form-text text-muted text-right">
             {text.length} of maximum 24 characters
           </small>
         </div>
