@@ -46,7 +46,7 @@ const FakeDesigns = ({ count = 20, category }) => {
           onClick={updateWords}
           style={{ marginTop: "2rem" }}
         >
-          Refresh
+          Load more examples
         </button>
       </FullWidthContainer>
     </div>

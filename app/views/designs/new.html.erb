@@ -8,14 +8,13 @@
 } %>
 
 <div class="container">
+  <p class="small text-center step">Step 1 of 4</p>
   <h1 class="page-title">Create your design</h1>
   <div class="row">
-    <div class="col-lg-8">
+    <div class="col-md-8 col-lg-6 mx-auto">
+    <div class="card p-3">
     <%= react_component("DesignForm", { action: design_path, initialText: @text }) %>
-    </div>
-    <div class="col-lg-4 order-lg-first mt-5 mt-lg-0">
-      <%= image_tag("mockup-generator.jpg", :alt => "Supreme style white t-shirt", class:"align-middle" ) %>
-    </div>
+    </div></div>
   </div>
   <div id="fake-designs">
     <%= react_component("FakeDesigns", { count: 25 }) %>
